@@ -202,7 +202,15 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
 
 /* ---------- TIER CARDS ---------- */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+/* align-items: start — uden den straekker grid'et alle kort i raekken til
+   samme hoejde. Klapper man ét kort ud, vokser nabokortet med og staar
+   tomt, som om det ogsaa var aabent. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; }
 .card h3 { margin: 0 0 0.15rem; font-size: 1rem; }
 .card .prog { color: var(--gold); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
