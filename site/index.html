@@ -523,11 +523,15 @@ function render(data) {
   const cards = document.getElementById("cards");
   cards.innerHTML = "";
 
-  // Seneste fulde clear leverer tiderne pr. zone. Et gennemsnit ville skjule,
-  // at zonerne raides i fast raekkefoelge.
-  const latest = data.raids.find((r) => r.full_tier_clear);
+  // Hvert kort laeser SIN EGEN zone, ikke aftenen som helhed. Ellers ville en
+  // aften hvor fx Al'ar manglede diskvalificere HELE aftenen, og SSC-kortet
+  // ville vise en aeldre og langsommere tid, selvom SSC faldt helt den aften.
+  // data.raids er nyeste foerst, saa find() giver den seneste af sig selv.
   s.tier_zones.forEach((zoneName) => {
-    const zone = latest && latest.zones.find((z) => z.zone === zoneName);
+    const night = data.raids.find((r) =>
+      r.zones.some((z) => z.zone === zoneName && z.complete)
+    );
+    const zone = night && night.zones.find((z) => z.zone === zoneName);
     const p = data.progression.zones[zoneName];
     const card = document.createElement("div");
     card.className = "card";
@@ -535,7 +539,8 @@ function render(data) {
       <h3>${zoneName}</h3>
       <div class="prog">${p.killed}/${p.total} bosses</div>
       <div class="time">${zone ? fmt(zone.wallclock_ms) : "—"}
-        <small>latest full clear · ${latest ? longDate(latest.started_at) : ""}</small>
+        <small>latest full clear · ${night ? longDate(night.started_at) : ""}
+          ${zone ? `· ${zone.raid_size} raiders` : ""}</small>
       </div>
       ${zone ? `<details>
         <summary>Kill times</summary>
