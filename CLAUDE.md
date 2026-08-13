@@ -79,6 +79,34 @@ ikke workspacets DD/MM/ÅÅÅÅ. Det er bevidst: `06-08` læses som 8. juni af
 halvdelen af et internationalt publikum. Workspace-reglen gælder Simons egne
 tekster og filnavne — ikke dette produkts brugerflade. **Lav det ikke om.**
 
+## Design: brug `frontend-design`-skill'en — men kun når der er noget at designe
+
+Ved **substantielt** visuelt arbejde — en ny sektion, et nyt layout, en omgang på
+en hel side — så læs `frontend-design`-skill'en, før du skriver CSS'en.
+
+**Ikke** ved småting: en `align-items`, en farvejustering, en tekstrettelse, et
+flyttet billede. Dér er den støj, og støj gør, at den bliver ignoreret, når den
+faktisk betyder noget.
+
+**Den taber altid til de fem regler øverst.** Foreslår den noget, der gør et tal
+kønnere på bekostning af, at det er ærligt — større rekord, pænere udsnit af data,
+en median der pyntes — så vinder reglerne. Siden skal kunne holde til, at en
+skeptisk ansøger går den efter. Det er hele grunden til, at den virker.
+
+## Verificér visuelle ændringer på et billede, ikke i hovedet
+
+`scripts/shot.py` skyder siden i desktop og mobil. Klip ind om den sektion, du
+har rørt — et fuldsides-screenshot gør detaljen for lille til at bedømme.
+
+Det er ikke en formalitet. Under byggeriet fangede den her arbejdsform tre fejl,
+som var usynlige i koden: to tier-kort der strakte hinanden i højden, en side der
+scrollede vandret til 2363px på grund af tre gennemsigtige radioknapper, og et
+baggrundsbillede der flyttede sig, hver gang et kort foldede sig ud.
+
+Og når noget skal *måles* frem for ses — barbredder, positioner, overflow — så
+mål det med Playwright i stedet for at squinte på et screenshot. Jeg har taget
+fejl af et billede mindst én gang og påstået en fejl, der ikke var der.
+
 ## Arbejdsform i dette projekt
 
 Simon er uddannet datamatiker, Java-backend-tung, rusten på frontend og har ikke
