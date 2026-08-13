@@ -211,7 +211,36 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   gap: 1rem;
   align-items: start;
 }
-.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; }
+/* Hvert kort viser SIT udsnit af den samme hero-kunst: Kael'thas til The Eye,
+   Vashj til Serpentshrine. Ét billede, to udsnit — browseren henter det kun
+   én gang, og det er allerede i cachen fra hero'en.
+   --art-x saettes pr. kort i JS og styrer hvilken figur der rammes. */
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background:
+    /* To slor over billedet. Det lodrette moerkner nedad, hvor kill-tiderne
+       staar naar kortet er klappet ud — ellers ligger tallene oven paa
+       figurens lyseste partier og bliver ulaeselige. */
+    linear-gradient(180deg,
+      rgba(18,16,13,0) 0%,
+      rgba(18,16,13,0.35) 45%,
+      rgba(18,16,13,0.72) 100%),
+    /* Det vandrette holder venstre side moerk, hvor tid og dato staar,
+       og aabner mod hoejre hvor figuren er. */
+    linear-gradient(100deg,
+      rgba(18,16,13,0.97) 0%,
+      rgba(18,16,13,0.92) 36%,
+      rgba(18,16,13,0.66) 72%,
+      rgba(18,16,13,0.5) 100%),
+    /* 260% og ikke cover: med cover skaleres billedet til kortets hoejde, og
+       saa er der kun ~100px at panorere i — begge kort ville vise det samme.
+       Ved 260% er billedet 2,6 gange kortets bredde, og der er plads til at
+       ramme hver sin figur. */
+    url("art/t5-kaelthas-vashj.jpg") var(--art-x, 50%) 24% / 260% auto no-repeat,
+    var(--panel);
+}
 .card h3 { margin: 0 0 0.15rem; font-size: 1rem; }
 .card .prog { color: var(--gold); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 .card .time { margin-top: 1rem; font-size: 1.9rem; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -219,7 +248,10 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 .card details { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 0.75rem; }
 .card summary { cursor: pointer; color: var(--muted); font-size: 0.85rem; }
 .card details ul { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
-.card details li { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Lidt lysere end --muted: listen ligger oven paa kunsten og skal stadig
+   kunne laeses. Tiden faar fuld styrke — den er grunden til at man klappede ud. */
+.card details li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.85rem; color: #bdb2a0; font-variant-numeric: tabular-nums; }
+.card details li span:last-child { color: var(--text); font-weight: 600; }
 
 /* ---------- PREVIOUS TIER ---------- */
 .previous {
@@ -398,6 +430,14 @@ const NEEDS = [
   { role: "Exceptional applicants", hot: false },
 ];
 
+// Hvor i hero-billedet hver zones boss staar. Vaerdien er background-position-x:
+// Kael'thas i venstre side, Vashj i hoejre. Rammer en ny tier ind, tilfoejes
+// linjen her — mangler zonen, falder kortet tilbage paa 50% og ser stadig fint ud.
+const ART_FOCUS = {
+  "The Eye": "6%",                   // Kael'thas Sunstrider
+  "Serpentshrine Cavern": "69%",     // Lady Vashj
+};
+
 const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
@@ -543,6 +583,7 @@ function render(data) {
     const p = data.progression.zones[zoneName];
     const card = document.createElement("div");
     card.className = "card";
+    if (ART_FOCUS[zoneName]) card.style.setProperty("--art-x", ART_FOCUS[zoneName]);
     card.innerHTML = `
       <h3>${zoneName}</h3>
       <div class="prog">${p.killed}/${p.total} bosses</div>
