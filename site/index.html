@@ -13,7 +13,7 @@
 <meta property="og:title" content="Omen · Spineshatter — 10/10 T5, median clear 2h56">
 <meta property="og:description" content="Thursdays 20:30-23:30 server time. Wall-clock clear time from first pull to last boss, trash and wipes included. Median across 5 raid nights — never the record.">
 <meta property="og:url" content="https://omenguild.pages.dev/">
-<meta property="og:image" content="https://omenguild.pages.dev/art/t5-kaelthas-vashj.jpg">
+<meta property="og:image" content="https://omenguild.pages.dev/art/t6-illidan.webp">
 <meta name="theme-color" content="#0d0c0b">
 
 <link rel="stylesheet" href="style.css">
@@ -29,14 +29,18 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
    giver vandret overflow. */
 .hero-art {
   position: absolute;
-  top: -6rem;
+  top: -2rem;
   left: 50%;
   width: 100vw;
   max-width: 100vw;
   transform: translateX(-50%);
   height: clamp(30rem, 72vh, 46rem);
   z-index: -1;
-  background: url("art/t5-kaelthas-vashj.jpg") center 28% / cover no-repeat;
+  /* Illidan i toppen: han er Black Temple, altsaa naeste tier. Siden er klar
+     til Phase 3 uden at skulle skifte hero-kunst paa dagen.
+     Kompositionen passer ogsaa: templet i venstre side er moerkt, saa OMEN
+     kan staa der, og Illidan fylder hoejre halvdel. */
+  background: url("art/t6-illidan.webp") center 18% / cover no-repeat;
   /* Masken lader kunsten doe ud nedad i stedet for at ende i en kant. */
   mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 98%);
 }
@@ -48,7 +52,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   inset: 0;
   background:
     linear-gradient(90deg, rgba(13,12,11,0.82) 0%, rgba(13,12,11,0.45) 38%, rgba(13,12,11,0.12) 100%),
-    linear-gradient(180deg, rgba(13,12,11,0.62) 0%, rgba(13,12,11,0.12) 26%, rgba(13,12,11,0.86) 78%, var(--bg) 100%);
+    linear-gradient(180deg, rgba(13,12,11,0.42) 0%, rgba(13,12,11,0.10) 24%, rgba(13,12,11,0.84) 76%, var(--bg) 100%);
 }
 
 .masthead {
@@ -234,11 +238,15 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
       rgba(18,16,13,0.92) 36%,
       rgba(18,16,13,0.66) 72%,
       rgba(18,16,13,0.5) 100%),
-    /* 260% og ikke cover: med cover skaleres billedet til kortets hoejde, og
+    /* 330% og ikke cover: med cover skaleres billedet til kortets hoejde, og
        saa er der kun ~100px at panorere i — begge kort ville vise det samme.
-       Ved 260% er billedet 2,6 gange kortets bredde, og der er plads til at
-       ramme hver sin figur. */
-    url("art/t5-kaelthas-vashj.jpg") var(--art-x, 50%) 24% / 260% auto no-repeat,
+       Ved 330% er billedet 3,3 gange kortets bredde, og der er plads til at
+       ramme hver sin figur.
+       Den LODRETTE position er et fast maal (-2rem) og ikke en procent.
+       Procenter maales i forhold til KORTETS hoejde, saa billedet flyttede
+       sig, hver gang man klappede kill-tiderne ud. Et fast maal er det
+       samme udsnit i begge tilstande. */
+    url("art/t5-kaelthas-vashj.jpg") var(--art-x, 50%) -2rem / 330% auto no-repeat,
     var(--panel);
 }
 .card h3 { margin: 0 0 0.15rem; font-size: 1rem; }
@@ -265,9 +273,13 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 .previous b { color: var(--text); font-variant-numeric: tabular-nums; }
 
 /* ---------- APPLY ---------- */
-/* Illidan staar bag ansoegningen med vilje: han ER naeste tier. Sektionen
-   handler om at komme med videre, og kunsten siger hvorhen. */
-.apply-section { position: relative; }
+/* Alle tre bosser bag ansoegningen: Kael'thas og Vashj er dem, guilden har
+   lagt ned, Illidan er den der venter. Sektionen handler om at komme med
+   videre, og kunsten viser baade hvad der er naaet og hvorhen. */
+/* Ekstra luft i toppen: uden den daekker ansoegningsboksen praecis den
+   midterste del af billedet, hvor Kael'thas og Vashj staar, og saa ser man
+   kun Illidans horn. Nu faar alle tre plads over boksen. */
+.apply-section { position: relative; padding-top: 9rem; }
 .apply-art {
   position: absolute;
   top: 0;
@@ -277,7 +289,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   transform: translateX(-50%);
   height: 100%;
   z-index: -1;
-  background: url("art/t6-illidan.webp") center 32% / cover no-repeat;
+  background: url("art/tbc-alle-tre.jpeg") center 34% / cover no-repeat;
 }
 /* Illidan maa gerne ses — men teksten i boksen skal vinde. Boksen har sit
    eget panel med blur ovenpaa, saa sloeret her maa vaere lettere end i hero'en. */
@@ -331,7 +343,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 <div class="shell">
 
   <header>
-    <div class="hero-art" role="img" aria-label="Kael'thas Sunstrider and Lady Vashj"></div>
+    <div class="hero-art" role="img" aria-label="Illidan Stormrage at the Black Temple"></div>
 
     <h1 class="masthead">Omen</h1>
     <p class="tagline">
@@ -382,7 +394,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   </section>
 
   <section class="apply-section">
-    <div class="apply-art" role="img" aria-label="Illidan Stormrage at the Black Temple"></div>
+    <div class="apply-art" role="img" aria-label="Kael'thas, Illidan and Lady Vashj"></div>
     <div class="apply">
       <div>
         <h2>Apply</h2>
@@ -434,7 +446,7 @@ const NEEDS = [
 // Kael'thas i venstre side, Vashj i hoejre. Rammer en ny tier ind, tilfoejes
 // linjen her — mangler zonen, falder kortet tilbage paa 50% og ser stadig fint ud.
 const ART_FOCUS = {
-  "The Eye": "6%",                   // Kael'thas Sunstrider
+  "The Eye": "13%",                  // Kael'thas Sunstrider
   "Serpentshrine Cavern": "69%",     // Lady Vashj
 };
 
