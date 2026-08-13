@@ -123,9 +123,30 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   overflow: hidden;
 }
 .fact { background: var(--panel); padding: 1.1rem 1.25rem; backdrop-filter: blur(6px); }
-.fact dt { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
-.fact dd { margin: 0.35rem 0 0; font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.fact dd small { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+/* Etiketten skal kunne ses, uden at slaas med tallet under den. Derfor en
+   ANDEN slags vaegt end vaerdien: guld, fed og spaerret i stedet for stor.
+   Farven adskiller den ogsaa fra den hvide broedtekst, saa oejet laeser
+   "etiket -> vaerdi" frem for to ligestillede linjer. */
+.fact dt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+/* Lille streg efter teksten. Den giver etiketten en kant at hvile paa og
+   binder de fire felter sammen som ét system. */
+.fact dt::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(200,164,92,0.35), transparent);
+}
+.fact dd { margin: 0.5rem 0 0; font-size: 1.25rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.fact dd small { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-top: 0.15rem; }
 
 /* ---------- CONSISTENCY BARS ---------- */
 .bars {
@@ -239,6 +260,14 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 @media (min-width: 720px) { .apply { grid-template-columns: 1.4fr 1fr; align-items: center; } }
 .apply h2 { margin-bottom: 0.75rem; }
 .apply p { margin: 0 0 0.6rem; color: var(--muted); }
+.apply .discord {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration-color: rgba(200,164,92,0.45);
+  text-underline-offset: 0.2em;
+  white-space: nowrap;
+}
+.apply .discord:hover { text-decoration-color: var(--gold); }
 .needs { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .need { border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; }
 .need.hot { border-color: rgba(200,164,92,0.6); color: var(--gold); }
@@ -321,7 +350,11 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
           We raid two nights a week and we use them. Show up prepared, know your
           class, and take feedback without locking up — that is the whole bar.
         </p>
-        <p>Reach out to <b>Boodu</b> or <b>Raîns</b> on Discord.</p>
+        <p>
+          Reach out to <b>Boodu</b> or <b>Raîns</b> on Discord —
+          <a class="discord" href="https://discord.gg/quAc3knuv" target="_blank" rel="noopener">
+            join the server</a>.
+        </p>
         <div class="needs" id="needs"></div>
       </div>
       <div>
