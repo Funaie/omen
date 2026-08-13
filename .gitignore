@@ -10,3 +10,6 @@ __pycache__/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Screenshots fra scripts/shot.py — kun til udvikling
+.shots/
