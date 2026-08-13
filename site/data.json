@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T10:00:05+00:00",
+  "generated_at": "2026-08-13T10:39:55+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -23,6 +23,54 @@
     "night_count": 32,
     "full_clear_count": 8,
     "days_since_last_full_clear": 20
+  },
+  "progression": {
+    "zones": {
+      "Serpentshrine Cavern": {
+        "tier": "T5",
+        "killed": 6,
+        "total": 6
+      },
+      "The Eye": {
+        "tier": "T5",
+        "killed": 4,
+        "total": 4
+      },
+      "Gruul's Lair": {
+        "tier": "T4",
+        "killed": 2,
+        "total": 2
+      },
+      "Magtheridon's Lair": {
+        "tier": "T4",
+        "killed": 1,
+        "total": 1
+      },
+      "Karazhan": {
+        "tier": "T4",
+        "killed": 11,
+        "total": 11
+      }
+    },
+    "T5": {
+      "killed": 10,
+      "total": 10
+    },
+    "T4": {
+      "killed": 11,
+      "total": 11
+    }
+  },
+  "previous_tier": {
+    "tier": "T4",
+    "zones": [
+      "Karazhan"
+    ],
+    "clear_count": 12,
+    "median_wallclock_ms": 5685038,
+    "median_display": "1t35",
+    "best_display": "1t20",
+    "weeks_to_best": 10
   },
   "window": [
     "2yp3JHDGZxA7f8MQ",
@@ -1086,7 +1134,7 @@
           "wallclock_ms": 4773177,
           "boss_time_ms": 822089,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1156,7 +1204,7 @@
           "wallclock_ms": 5549211,
           "boss_time_ms": 855275,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1226,7 +1274,7 @@
           "wallclock_ms": 5161776,
           "boss_time_ms": 1078742,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1296,7 +1344,7 @@
           "wallclock_ms": 6445687,
           "boss_time_ms": 935526,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1366,7 +1414,7 @@
           "wallclock_ms": 5663874,
           "boss_time_ms": 900084,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1436,7 +1484,7 @@
           "wallclock_ms": 5077549,
           "boss_time_ms": 873671,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1506,7 +1554,7 @@
           "wallclock_ms": 6728988,
           "boss_time_ms": 1137654,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1576,7 +1624,7 @@
           "wallclock_ms": 5579302,
           "boss_time_ms": 933093,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1646,7 +1694,7 @@
           "wallclock_ms": 5743730,
           "boss_time_ms": 991111,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1716,7 +1764,7 @@
           "wallclock_ms": 5706202,
           "boss_time_ms": 1219229,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1786,7 +1834,7 @@
           "wallclock_ms": 9134711,
           "boss_time_ms": 1485784,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 9,
           "bosses": [
@@ -1856,7 +1904,7 @@
           "wallclock_ms": 7257614,
           "boss_time_ms": 1458784,
           "boss_kills": 11,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": true,
           "raid_size": 10,
           "bosses": [
@@ -1926,7 +1974,7 @@
           "wallclock_ms": 6047158,
           "boss_time_ms": 878859,
           "boss_kills": 4,
-          "boss_count_expected": 10,
+          "boss_count_expected": 11,
           "complete": false,
           "raid_size": 10,
           "bosses": [
@@ -1959,7 +2007,7 @@
       "zones_wallclock_ms": 12122204,
       "raid_size": 25,
       "boss_kills": 13,
-      "complete": true,
+      "complete": false,
       "full_tier_clear": false,
       "zones": [
         {
@@ -1968,8 +2016,8 @@
           "wallclock_ms": 7120201,
           "boss_time_ms": 1089242,
           "boss_kills": 10,
-          "boss_count_expected": 10,
-          "complete": true,
+          "boss_count_expected": 11,
+          "complete": false,
           "raid_size": 10,
           "bosses": [
             {

@@ -40,7 +40,9 @@ ZONES = {
     "The Eye": {"tier": "T5", "bosses": 4},
     "Gruul's Lair": {"tier": "T4", "bosses": 2},
     "Magtheridon's Lair": {"tier": "T4", "bosses": 1},
-    "Karazhan": {"tier": "T4", "bosses": 10},
+    # 11 og ikke 10: Nightbane er optionel i teorien, men Omen tager ham hver
+    # gang, så en "fuld Karazhan" uden ham ville være en halv sandhed.
+    "Karazhan": {"tier": "T4", "bosses": 11},
 }
 
 # Hvad "alt" betyder lige nu. En aften tæller kun med i hovedtallet, hvis DISSE
@@ -49,6 +51,11 @@ ZONES = {
 # Når T6 åbner, er det her linjen, der skal ændres.
 CURRENT_TIER = "T5"
 CURRENT_TIER_ZONES = ["Serpentshrine Cavern", "The Eye"]
+
+# Forrige tier bruges til én linje på siden: "det her tog X uger at lære, og
+# endte som en farm-clear på Y". Det er beviset for, hvad T5 ender med at blive.
+PREVIOUS_TIER = "T4"
+PREVIOUS_TIER_ZONES = ["Karazhan"]
 
 # Rullende vindue for hovedtallet: guilden bliver hurtigere, og et tal fra maj
 # beskriver ikke den raid, en ansøger møder i august.
@@ -272,6 +279,79 @@ def select_window(nights: list[dict]) -> tuple[list[dict], int]:
     return inside, span
 
 
+def build_progression(nights: list[dict]) -> dict:
+    """Hvor langt er de nået pr. zone — "10/10 T5".
+
+    Progression er "nogensinde dræbt", ikke "dræbt i går". Én boss talt én gang,
+    uanset hvor mange gange han er lagt ned, derfor et set af navne.
+    """
+    killed: dict[str, set[str]] = defaultdict(set)
+    for night in nights:
+        for zone in night["zones"]:
+            killed[zone["zone"]].update(b["name"] for b in zone["bosses"])
+
+    zones = {}
+    for name, config in ZONES.items():
+        zones[name] = {
+            "tier": config["tier"],
+            "killed": len(killed.get(name, ())),
+            "total": config["bosses"],
+        }
+
+    def tier_line(tier_zones: list[str]) -> dict:
+        return {
+            "killed": sum(zones[z]["killed"] for z in tier_zones),
+            "total": sum(zones[z]["total"] for z in tier_zones),
+        }
+
+    return {
+        "zones": zones,
+        CURRENT_TIER: tier_line(CURRENT_TIER_ZONES),
+        PREVIOUS_TIER: tier_line(PREVIOUS_TIER_ZONES),
+    }
+
+
+def summarise_tier(nights: list[dict], tier_zones: list[str]) -> dict | None:
+    """Median og rekord for en tier, der ikke er den nuværende.
+
+    Bruges til forrige-tier-linjen. Ingen vindue her — hele tieren er forbi,
+    så det er hele historikken, der er det interessante.
+    """
+    qualified = [
+        n
+        for n in nights
+        if all(
+            any(z["zone"] == name and z["complete"] for z in n["zones"])
+            for name in tier_zones
+        )
+    ]
+    if not qualified:
+        return None
+
+    wallclocks = [n["session_wallclock_ms"] for n in qualified]
+    median = int(statistics.median(wallclocks))
+    return {
+        "clear_count": len(qualified),
+        "median_wallclock_ms": median,
+        "median_display": format_duration(median),
+        "best_display": format_duration(min(wallclocks)),
+        # Hvor lang tid gik der fra første clear til den hurtigste? Det er
+        # laeringskurven, sat i uger.
+        "weeks_to_best": max(
+            0,
+            (
+                datetime.fromisoformat(
+                    min(qualified, key=lambda n: n["session_wallclock_ms"])["started_at"]
+                )
+                - datetime.fromisoformat(
+                    min(qualified, key=lambda n: n["started_at"])["started_at"]
+                )
+            ).days
+            // 7,
+        ),
+    }
+
+
 def build_dataset(raids: list[dict]) -> dict:
     """Saml det, siden skal bruge. Median — ikke rekord.
 
@@ -322,6 +402,12 @@ def build_dataset(raids: list[dict]) -> dict:
                 if qualified
                 else None
             ),
+        },
+        "progression": build_progression(nights),
+        "previous_tier": {
+            "tier": PREVIOUS_TIER,
+            "zones": PREVIOUS_TIER_ZONES,
+            **(summarise_tier(nights, PREVIOUS_TIER_ZONES) or {}),
         },
         # Kun de aftener, hovedtallet står på — i den rækkefølge, de skal vises.
         "window": [r["code"] for r in window],
@@ -383,6 +469,15 @@ def main() -> int:
         OUTPUT_PATH.write_text(
             json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8"
         )
+        # "11/10" betyder ikke en overpræstation, det betyder at ZONES lyver.
+        for zone_name, progress in dataset["progression"]["zones"].items():
+            if progress["killed"] > progress["total"]:
+                print(
+                    f"ADVARSEL: {zone_name} viser {progress['killed']}/{progress['total']}"
+                    f" — bossantallet i ZONES er for lavt.",
+                    file=sys.stderr,
+                )
+
         summary = dataset["summary"]
         print(
             f"\n{summary['report_count']} reports -> {summary['night_count']} aftener"
