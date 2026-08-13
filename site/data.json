@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T11:50:19+00:00",
+  "generated_at": "2026-08-13T21:37:18+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,17 +12,17 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 5,
+    "nights_in_window": 4,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10566370,
-    "median_display": "2h56",
+    "median_wallclock_ms": 10639526,
+    "median_display": "2h57",
     "best_wallclock_ms": 9271532,
     "best_display": "2h35",
-    "report_count": 66,
-    "night_count": 32,
+    "report_count": 67,
+    "night_count": 33,
     "full_clear_count": 8,
-    "days_since_last_full_clear": 20
+    "days_since_last_full_clear": 21
   },
   "progression": {
     "zones": {
@@ -75,10 +75,95 @@
     "2yp3JHDGZxA7f8MQ",
     "KrH4FZRnvtM9fxB1",
     "t8bmZ3G4Yy2XKfPh",
-    "tdZgWKV3G87TfQcA",
-    "7d2vwTJgtbYVPaDq"
+    "tdZgWKV3G87TfQcA"
   ],
   "raids": [
+    {
+      "code": "pQA1DVMBP8khncKL",
+      "title": "weird raid inc",
+      "date": "13-08-2026",
+      "started_at": "2026-08-13T19:19:51+00:00",
+      "session_wallclock_ms": 7790295,
+      "zones_wallclock_ms": 6192578,
+      "raid_size": 25,
+      "boss_kills": 9,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4295171,
+          "boss_time_ms": 911964,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 302261
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 66400
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 137321
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 405982
+            }
+          ]
+        },
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 1339245,
+          "boss_time_ms": 615963,
+          "boss_kills": 3,
+          "boss_count_expected": 6,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 103261
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 131147
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 381555
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 558162,
+          "boss_time_ms": 188565,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 23,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 43013
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 145552
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "YKZWDmNkjBtav1ng",
       "title": "25 man",
