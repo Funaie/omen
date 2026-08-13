@@ -1,16 +1,33 @@
 <!doctype html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ansøg · Omen</title>
+<title>Apply · Omen</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0d0c0b">
 <link rel="stylesheet" href="style.css">
 <style>
-.wrap { max-width: 620px; margin-inline: auto; padding: clamp(2.5rem, 8vh, 5rem) 0 4rem; }
+.wrap { position: relative; max-width: 620px; margin-inline: auto; padding: clamp(2.5rem, 8vh, 5rem) 0 4rem; }
 a.back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
 a.back:hover { color: var(--text); }
+
+/* Samme kunst som forsidens apply-sektion, saa de to sider foeles som ét sted. */
+.page-art {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 60vh;
+  z-index: -1;
+  background: url("art/t6-illidan.webp") center 22% / cover no-repeat;
+  mask-image: linear-gradient(180deg, #000 0%, #000 45%, transparent 95%);
+  opacity: 0.55;
+}
+.page-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,12,11,0.7) 0%, rgba(13,12,11,0.55) 35%, var(--bg) 100%);
+}
 
 h1 { font-size: clamp(1.9rem, 5vw, 2.5rem); margin: 1.5rem 0 0.5rem; letter-spacing: -0.02em; }
 .intro { color: var(--muted); margin: 0 0 2.25rem; }
@@ -24,7 +41,7 @@ label .opt { font-weight: 400; color: var(--muted); }
 input, select, textarea {
   font: inherit;
   color: var(--text);
-  background: rgba(0,0,0,0.28);
+  background: rgba(0,0,0,0.42);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 0.7rem 0.85rem;
@@ -43,7 +60,7 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
 .pair { display: grid; gap: 1.35rem; grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 560px) { .pair { grid-template-columns: 1fr 1fr; } }
 
-/* Ja/nej som to knapper frem for en dropdown: ét klik i stedet for tre. */
+/* Ja/nej som knapper frem for en dropdown: ét klik i stedet for tre. */
 .choice { display: flex; gap: 0.5rem; }
 .choice label {
   position: relative;   /* holder den skjulte radio inde i knappen */
@@ -54,7 +71,7 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  background: rgba(0,0,0,0.28);
+  background: rgba(0,0,0,0.42);
 }
 /* Radio'erne skal skjules UDEN at arve width:100% fra input-reglen ovenfor.
    Gjorde de det, blev hver knap 1440px bred og skubbede hele siden ud i
@@ -68,7 +85,7 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
   cursor: pointer;
 }
 .choice input:checked + span { color: var(--gold); font-weight: 700; }
-.choice label:has(input:checked) { border-color: rgba(200,164,92,0.6); background: rgba(200,164,92,0.08); }
+.choice label:has(input:checked) { border-color: rgba(200,164,92,0.6); background: rgba(200,164,92,0.1); }
 .choice label:has(input:focus-visible) { outline: 2px solid rgba(200,164,92,0.55); outline-offset: 1px; }
 
 .count { font-size: 0.78rem; color: var(--muted); text-align: right; }
@@ -88,30 +105,31 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
 </head>
 <body>
 <div class="backdrop"></div>
+<div class="page-art" role="img" aria-label="Illidan Stormrage at the Black Temple"></div>
 
 <div class="shell">
   <div class="wrap">
     <a class="back" href="./">← Omen · Spineshatter</a>
 
     <div id="form-view">
-      <h1>Ansøg til Omen</h1>
+      <h1>Apply to Omen</h1>
       <p class="intro">
-        Det her er en samtalestarter, ikke en eksamen. Vi rækker ud på Discord,
-        og resten tager vi derfra. Seks felter — det tager et minut.
+        This starts a conversation — it is not an exam. We reach out on Discord
+        and take it from there. Six fields, about a minute.
       </p>
 
       <form id="apply" novalidate>
         <div class="pair">
           <div class="field">
-            <label for="character">Karakternavn + realm</label>
+            <label for="character">Character name + realm</label>
             <input id="character" name="character" required maxlength="60"
                    autocomplete="off" placeholder="Boodu · Spineshatter">
           </div>
           <div class="field">
-            <label for="discord">Discord-navn</label>
+            <label for="discord">Discord name</label>
             <input id="discord" name="discord" required maxlength="60"
                    autocomplete="off" placeholder="boodu">
-            <span class="hint">Sådan får du svar.</span>
+            <span class="hint">This is how you get a reply.</span>
           </div>
         </div>
 
@@ -119,7 +137,7 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
           <div class="field">
             <label for="class">Class</label>
             <select id="class" name="class" required>
-              <option value="" disabled selected>Vælg…</option>
+              <option value="" disabled selected>Choose…</option>
               <option>Druid</option><option>Hunter</option><option>Mage</option>
               <option>Paladin</option><option>Priest</option><option>Rogue</option>
               <option>Shaman</option><option>Warlock</option><option>Warrior</option>
@@ -133,48 +151,48 @@ select { appearance: none; background-image: linear-gradient(45deg, transparent 
         </div>
 
         <div class="field">
-          <label for="logs">Link til WarcraftLogs <span class="opt">— valgfrit</span></label>
+          <label for="logs">Warcraft Logs link <span class="opt">— optional</span></label>
           <input id="logs" name="logs" type="url" maxlength="300"
                  autocomplete="off" placeholder="https://fresh.warcraftlogs.com/character/...">
-          <span class="hint">Har du ingen logs, så spring feltet over. Det diskvalificerer ikke.</span>
+          <span class="hint">No logs? Skip it. It will not disqualify you.</span>
         </div>
 
         <div class="field">
-          <label>Kan du torsdag 20:30–23:30 servertid?</label>
+          <label>Can you make Thursdays 20:30–23:30 server time?</label>
           <div class="choice">
-            <label><input type="radio" name="attendance" value="Ja" required><span>Ja</span></label>
-            <label><input type="radio" name="attendance" value="Som regel"><span>Som regel</span></label>
-            <label><input type="radio" name="attendance" value="Nej"><span>Nej</span></label>
+            <label><input type="radio" name="attendance" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="attendance" value="Usually"><span>Usually</span></label>
+            <label><input type="radio" name="attendance" value="No"><span>No</span></label>
           </div>
         </div>
 
         <div class="field">
-          <label for="why">Hvorfor Omen? <span class="opt">— valgfrit</span></label>
+          <label for="why">Why Omen? <span class="opt">— optional</span></label>
           <textarea id="why" name="why" maxlength="400"
-                    placeholder="To linjer er rigeligt."></textarea>
+                    placeholder="Two lines is plenty."></textarea>
           <span class="count" id="count">0 / 400</span>
         </div>
 
         <div class="hp" aria-hidden="true">
-          <label for="website">Lad dette felt stå tomt</label>
+          <label for="website">Leave this field empty</label>
           <input id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
 
-        <button class="btn" type="submit" id="submit">Send ansøgning</button>
+        <button class="btn" type="submit" id="submit">Send application</button>
         <div class="status" id="status" hidden></div>
       </form>
     </div>
 
     <div id="done-view" class="done" hidden>
       <div class="mark">✓</div>
-      <h2>Sendt</h2>
-      <p>Den ligger i Omens Discord nu. Boodu eller Raîns rækker ud til dig.</p>
-      <a class="btn" href="./" style="max-width:16rem;margin-inline:auto">Tilbage til forsiden</a>
+      <h2>Sent</h2>
+      <p>It is in Omen's Discord now. Boodu or Raîns will reach out to you.</p>
+      <a class="btn" href="./" style="max-width:16rem;margin-inline:auto">Back to the front page</a>
     </div>
   </div>
 
   <footer>
-    <p>Vi gemmer ingenting. Felterne sendes direkte til Omens Discord og ligger ikke andre steder.</p>
+    <p>We store nothing. The fields go straight to Omen's Discord and live nowhere else.</p>
   </footer>
 </div>
 
@@ -194,7 +212,7 @@ function fail(message) {
   status.className = "status error";
   status.textContent = message;
   button.disabled = false;
-  button.textContent = "Send ansøgning";
+  button.textContent = "Send application";
 }
 
 form.addEventListener("submit", async (event) => {
@@ -202,12 +220,12 @@ form.addEventListener("submit", async (event) => {
   status.hidden = true;
 
   // Egen validering frem for browserens: novalidate paa formen giver os
-  // beskeder paa dansk i stedet for browserens sprog.
+  // kontrol over ordlyden i stedet for browserens egne beskeder.
   const required = [
-    ["character", "Skriv karakternavn og realm."],
-    ["discord", "Vi skal bruge dit Discord-navn for at kunne svare."],
-    ["class", "Vælg din class."],
-    ["spec", "Skriv din spec."],
+    ["character", "Add your character name and realm."],
+    ["discord", "We need your Discord name to be able to reply."],
+    ["class", "Pick your class."],
+    ["spec", "Add your spec."],
   ];
   for (const [name, message] of required) {
     const field = form.elements[name];
@@ -218,11 +236,11 @@ form.addEventListener("submit", async (event) => {
     }
   }
   if (!form.elements["attendance"].value) {
-    return fail("Sig til om du kan torsdage — også hvis svaret er nej.");
+    return fail("Let us know about Thursdays — even if the answer is no.");
   }
 
   button.disabled = true;
-  button.textContent = "Sender…";
+  button.textContent = "Sending…";
 
   try {
     const response = await fetch("/api/apply", {
@@ -232,17 +250,17 @@ form.addEventListener("submit", async (event) => {
     });
 
     if (response.status === 429) {
-      return fail("For mange ansøgninger fra dit netværk lige nu. Prøv om lidt.");
+      return fail("Too many applications from your network right now. Try again shortly.");
     }
     if (!response.ok) {
       const body = await response.json().catch(() => ({}));
-      return fail(body.error || "Kunne ikke sende. Prøv igen, eller skriv til Boodu på Discord.");
+      return fail(body.error || "Could not send. Try again, or message Boodu on Discord.");
     }
 
     document.getElementById("form-view").hidden = true;
     document.getElementById("done-view").hidden = false;
   } catch {
-    fail("Ingen forbindelse. Tjek nettet og prøv igen.");
+    fail("No connection. Check your network and try again.");
   }
 });
 </script>

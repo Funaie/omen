@@ -1,11 +1,18 @@
 """Henter Omens raids fra WarcraftLogs og skriver site/data.json.
 
-Hovedtallet, hele siden bygger på, er **vægur-clear-tid**: fra første pull
-i en zone til sidste boss i zonen er død — inkl. trash og wipes.
+Hovedtallet, hele siden bygger på, er **vægur-clear-tid for hele aftenen**:
+fra første pull overhovedet til sidste boss er død — inkl. trash, wipes og
+tiden mellem zonerne. De ~20 minutter med summons og flyveture er rigtig
+raidtid for den, der sidder og venter på at kunne logge af.
 
-WarcraftLogs regner allerede det tal pr. zone (det er "1:12:35"-tallet på
-en report), men lægger aldrig zonerne sammen. Sammenlægningen på tværs af
-zoner til ét ugetal er sidets egentlige opfindelse, og den sker her.
+WarcraftLogs regner et tal pr. zone (det er "1:12:35"-tallet på en report),
+men lægger aldrig zonerne sammen og tæller aldrig mellemrummene med. Begge
+dele er sidets egen opfindelse, og de sker her.
+
+To ting, rigtige data afslørede, og som koden ikke må glemme:
+  * Samme raid logges tit af flere raidere — 66 reports var 32 aftener.
+  * En aften tæller kun i medianen, hvis HELE tieren faldt. Ellers ville en
+    7-minutters Gruul-log stå som en clear.
 
 Kørsel:
     python scripts/fetch_data.py --probe     # tjek forbindelse + se én report rå
@@ -15,6 +22,7 @@ Kørsel:
 import argparse
 import json
 import pathlib
+import re
 import statistics
 import sys
 from collections import defaultdict
@@ -225,10 +233,15 @@ def analyse_report(report: dict) -> dict | None:
 
 
 def format_duration(ms: int) -> str:
-    """2t24 — dansk, kort, uden sekunder. Sekunder er støj på et hovedtal."""
+    """2h24 — kort, uden sekunder. Sekunder er støj på et hovedtal.
+
+    Engelsk "h", ikke dansk "t": Omen er en international guild, og alt
+    brugervendt på siden er engelsk. Kommentarer og konsoloutput er stadig
+    dansk — de er til Simon, ikke til besøgende.
+    """
     minutes = round(ms / 60000)
     hours, minutes = divmod(minutes, 60)
-    return f"{hours}t{minutes:02d}" if hours else f"{minutes} min"
+    return f"{hours}h{minutes:02d}" if hours else f"{minutes} min"
 
 
 def deduplicate_nights(raids: list[dict]) -> list[dict]:
@@ -415,6 +428,51 @@ def build_dataset(raids: list[dict]) -> dict:
     }
 
 
+INDEX_PATH = OUTPUT_PATH.parent / "index.html"
+
+
+def update_og_tags(dataset: dict) -> bool:
+    """Skriv hovedtallet ind i index.html's OG-tags.
+
+    Discords link-preview ER sidens reelle forside — folk ser den, før de ser
+    siden. Men Discord læser den statiske HTML og kører ikke vores JavaScript,
+    så tallet dér skal skrives ind på forhånd. Uden det her ville previewet
+    fastfryse ved det tal, der stod, da filen blev skrevet i hånden.
+
+    Returnerer True, hvis filen faktisk blev ændret.
+    """
+    if not INDEX_PATH.exists():
+        return False
+
+    summary = dataset["summary"]
+    progress = dataset["progression"][summary["tier"]]
+
+    title = (
+        f"Omen · Spineshatter — {progress['killed']}/{progress['total']} "
+        f"{summary['tier']}, median clear {summary['median_display']}"
+    )
+    description = (
+        "Thursdays 20:30-23:30 server time. Wall-clock clear time from first "
+        "pull to last boss, trash and wipes included. Median across "
+        f"{summary['nights_in_window']} raid nights — never the record."
+    )
+
+    html = original = INDEX_PATH.read_text(encoding="utf-8")
+    for prop, value in (("og:title", title), ("og:description", description)):
+        # Kun content-attributten på præcis den ene meta-tag røres.
+        html = re.sub(
+            rf'(<meta property="{prop}" content=")[^"]*(">)',
+            lambda m: m.group(1) + value.replace("\\", "\\\\") + m.group(2),
+            html,
+            count=1,
+        )
+
+    if html == original:
+        return False
+    INDEX_PATH.write_text(html, encoding="utf-8")
+    return True
+
+
 def unchanged(dataset: dict, path: pathlib.Path) -> bool:
     """Er alt bortset fra tidsstemplet det samme som i filen paa disken?"""
     if not path.exists():
@@ -487,11 +545,17 @@ def main() -> int:
         # sammenlignes alt UNDTAGEN tidsstemplet.
         if unchanged(dataset, OUTPUT_PATH):
             print("\nTallene er uaendrede — data.json roeres ikke.")
+            # OG-tags tjekkes alligevel: de kan vaere bagud, hvis nogen har
+            # redigeret index.html i haanden.
+            if update_og_tags(dataset):
+                print("OG-tags i index.html rettet ind efter tallene.")
             return 0
 
         OUTPUT_PATH.write_text(
             json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8"
         )
+        if update_og_tags(dataset):
+            print("OG-tags i index.html opdateret.")
         # "11/10" betyder ikke en overpræstation, det betyder at ZONES lyver.
         for zone_name, progress in dataset["progression"]["zones"].items():
             if progress["killed"] > progress["total"]:

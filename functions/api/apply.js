@@ -64,17 +64,17 @@ export async function onRequestPost({ request, env }) {
     // Konfigurationsfejl, ikke brugerfejl — sig det praecist i loggen,
     // men lad vaere med at afsloere opsaetningen for den, der ansoeger.
     console.error("DISCORD_WEBHOOK_URL mangler i miljoeet");
-    return json({ error: "Formularen er ikke sat op endnu." }, 503);
+    return json({ error: "The form is not set up yet." }, 503);
   }
 
   const ip = request.headers.get("CF-Connecting-IP") || "ukendt";
-  if (rateLimited(ip)) return json({ error: "For mange forsoeg." }, 429);
+  if (rateLimited(ip)) return json({ error: "Too many attempts." }, 429);
 
   let body;
   try {
     body = await request.json();
   } catch {
-    return json({ error: "Ugyldig anmodning." }, 400);
+    return json({ error: "Malformed request." }, 400);
   }
 
   // Honeypot: feltet er usynligt for mennesker. Er det udfyldt, er det en bot.
@@ -87,7 +87,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   for (const name of ["character", "discord", "class", "spec"]) {
-    if (!fields[name]) return json({ error: `Feltet "${name}" mangler.` }, 400);
+    if (!fields[name]) return json({ error: `The field "${name}" is missing.` }, 400);
   }
 
   const ping = env.OFFICER_ROLE_ID ? `<@&${env.OFFICER_ROLE_ID}> ` : "";
@@ -99,20 +99,20 @@ export async function onRequestPost({ request, env }) {
     url: fields.logs && /^https?:\/\//i.test(fields.logs) ? fields.logs : undefined,
     fields: [
       { name: "Discord", value: fields.discord, inline: true },
-      { name: "Torsdage", value: fields.attendance || "—", inline: true },
+      { name: "Thursdays", value: fields.attendance || "—", inline: true },
     ],
     timestamp: new Date().toISOString(),
-    footer: { text: "Sendt fra ansoegningsformularen" },
+    footer: { text: "Sent from the application form" },
   };
 
-  if (fields.why) embed.fields.push({ name: "Hvorfor Omen?", value: fields.why });
+  if (fields.why) embed.fields.push({ name: "Why Omen?", value: fields.why });
   if (fields.logs && !embed.url) embed.fields.push({ name: "Logs", value: fields.logs });
 
   const discord = await fetch(env.DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      content: `${ping}Ny ansoegning fra **${fields.character}**`,
+      content: `${ping}New application from **${fields.character}**`,
       embeds: [embed],
       // Kun officer-rollen maa pinges — aldrig @everyone, uanset hvad
       // nogen skriver i et felt.
@@ -124,7 +124,7 @@ export async function onRequestPost({ request, env }) {
 
   if (!discord.ok) {
     console.error("Discord svarede", discord.status, await discord.text());
-    return json({ error: "Kunne ikke levere ansoegningen." }, 502);
+    return json({ error: "Could not deliver the application." }, 502);
   }
 
   return json({ ok: true }, 200);

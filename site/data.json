@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T11:08:10+00:00",
+  "generated_at": "2026-08-13T11:22:33+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -16,9 +16,9 @@
     "window_days": 56,
     "window_extended": false,
     "median_wallclock_ms": 10566370,
-    "median_display": "2t56",
+    "median_display": "2h56",
     "best_wallclock_ms": 9271532,
-    "best_display": "2t35",
+    "best_display": "2h35",
     "report_count": 66,
     "night_count": 32,
     "full_clear_count": 8,
@@ -68,8 +68,8 @@
     ],
     "clear_count": 12,
     "median_wallclock_ms": 5685038,
-    "median_display": "1t35",
-    "best_display": "1t20",
+    "median_display": "1h35",
+    "best_display": "1h20",
     "weeks_to_best": 10
   },
   "window": [

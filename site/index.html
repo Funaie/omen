@@ -1,54 +1,95 @@
 <!doctype html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Omen · Spineshatter</title>
 
-<!-- OG-TAGS: kraever ABSOLUTTE url'er. Naar domaenet lander, rettes ETT sted:
-     konstanten SITE_URL nedenfor. Beskrivelsen fyldes af data.json ved load,
-     men Discord laeser den statiske vaerdi — derfor opdateres den af
-     scripts/fetch_data.py, ikke af browseren. -->
+<!-- OG-TAGS: kraever ABSOLUTTE url'er. Naar domaenet lander, rettes de her —
+     og kun her. Beskrivelsen opdateres af scripts/fetch_data.py, ikke af
+     browseren, fordi Discord laeser den statiske vaerdi. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Omen">
-<meta property="og:title" content="Omen · Spineshatter — 10/10 T5, median clear 2t56">
-<meta property="og:description" content="Torsdag 20:30-23:30 servertid. Vaegur-clear fra foerste pull til sidste boss, inkl. trash og wipes. Median, ikke rekord.">
+<meta property="og:title" content="Omen · Spineshatter — 10/10 T5, median clear 2h56">
+<meta property="og:description" content="Thursdays 20:30-23:30 server time. Wall-clock clear time from first pull to last boss, trash and wipes included. Median across 5 raid nights — never the record.">
 <meta property="og:url" content="https://omen.pages.dev/">
+<meta property="og:image" content="https://omen.pages.dev/art/t5-kaelthas-vashj.jpg">
 <meta name="theme-color" content="#0d0c0b">
 
 <link rel="stylesheet" href="style.css">
 <style>
-/* ---------- HERO ---------- */
-header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
+/* ---------- MASTHEAD + HERO ---------- */
+/* Kunsten hoerer til hero'en, ikke til hele siden: den staar bag navnet,
+   toner ud inden tallene, og lader data overtage laengere nede. */
+header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 
-.eyebrow {
+/* Full-bleed: kunsten skal gaa fra kant til kant, ikke sidde i en kasse midt
+   paa siden. .shell begraenser indholdet — derfor bryder billedet ud af den
+   med 100vw. calc'en bruger 100vw og ikke 100%, saa en synlig scrollbar ikke
+   giver vandret overflow. */
+.hero-art {
+  position: absolute;
+  top: -6rem;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  transform: translateX(-50%);
+  height: clamp(30rem, 72vh, 46rem);
+  z-index: -1;
+  background: url("art/t5-kaelthas-vashj.jpg") center 28% / cover no-repeat;
+  /* Masken lader kunsten doe ud nedad i stedet for at ende i en kant. */
+  mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 98%);
+}
+/* Sloeret. Venstre side daempes nok til at navnet kan laeses — men ikke saa
+   meget at Kael'thas forsvinder. Han er halvdelen af pointen med billedet. */
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13,12,11,0.82) 0%, rgba(13,12,11,0.45) 38%, rgba(13,12,11,0.12) 100%),
+    linear-gradient(180deg, rgba(13,12,11,0.62) 0%, rgba(13,12,11,0.12) 26%, rgba(13,12,11,0.86) 78%, var(--bg) 100%);
+}
+
+.masthead {
+  margin: 0;
+  font-size: clamp(4rem, 15vw, 10.5rem);
+  line-height: 0.86;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(175deg, #fbf3e2 12%, var(--gold) 88%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0.15em 1.5rem rgba(0,0,0,0.55);
+}
+/* Fallback: kan browseren ikke klippe gradient til tekst, faar den guld. */
+@supports not (background-clip: text) { .masthead { color: var(--gold); } }
+
+.tagline {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  gap: 0.7rem;
+  margin: 1rem 0 0;
+  color: var(--text);
+  font-size: clamp(0.85rem, 1.7vw, 1rem);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
-.eyebrow strong { color: var(--text); font-weight: 600; letter-spacing: 0.14em; }
-.dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+.dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
 
 .question {
-  margin: 1.75rem 0 0.35rem;
+  margin: clamp(3rem, 7vh, 4.5rem) 0 0.35rem;
   font-size: clamp(1.05rem, 2.2vw, 1.3rem);
   color: var(--muted);
   font-weight: 400;
 }
 
-.headline {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0 1.25rem;
-}
+.headline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 1.25rem; }
 .headline .figure {
-  font-size: clamp(4.5rem, 15vw, 9rem);
+  font-size: clamp(4rem, 13vw, 8rem);
   line-height: 0.95;
   font-weight: 700;
   color: var(--gold);
@@ -81,25 +122,23 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
   border-radius: 10px;
   overflow: hidden;
 }
-.fact { background: var(--panel); padding: 1.1rem 1.25rem; }
+.fact { background: var(--panel); padding: 1.1rem 1.25rem; backdrop-filter: blur(6px); }
 .fact dt { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .fact dd { margin: 0.35rem 0 0; font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .fact dd small { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
 
-/* ---------- KONSISTENSSTRIBE ---------- */
+/* ---------- CONSISTENCY BARS ---------- */
 .bars {
   display: grid;
   gap: 0.55rem;
   position: relative;
-  /* Kolonnebredderne bor her, saa stregen og raekkerne kan regne paa de samme
+  /* Kolonnebredderne bor her, saa stregen og raekkerne regner paa de samme
      tal. Aendrer du den ene, foelger den anden med. */
-  --col-date: 3.4rem;
+  --col-date: 3.9rem;
   --col-meta: 7.5rem;
 }
 /* Tre faste kolonner, ikke flex. Ellers bestemmer laengden af etiketten til
-   hoejre, hvor bredt sporet bliver, og saa maaler barerne ikke det samme —
-   hvilket goer hele striben loegn. Samme grund til at 3-timers-stregen kan
-   regnes praecist: sporet starter og slutter samme sted i hver raekke. */
+   hoejre, hvor bredt sporet bliver, og saa maaler barerne ikke det samme. */
 .bar-row {
   display: grid;
   grid-template-columns: var(--col-date) 1fr var(--col-meta);
@@ -107,16 +146,14 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
   gap: 1rem;
 }
 .bar-date { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-.bar-track { position: relative; height: 30px; background: rgba(255,255,255,0.035); border-radius: 4px; }
-.bar-track { overflow: hidden; }
+.bar-track { position: relative; height: 30px; background: rgba(255,255,255,0.035); border-radius: 4px; overflow: hidden; }
 .bar-fill {
   position: absolute; inset: 0 auto 0 0;
   border-radius: 4px;
   background: linear-gradient(90deg, rgba(200,164,92,0.55), rgba(200,164,92,0.8));
 }
 /* Tallet ligger i sit eget lag, ikke inde i baren. Ellers skubber teksten
-   smalle barer ud i bredden, og saa ser 1t12 lige saa lang ud som 3t35 —
-   praecis den loegn en soejlegraf ikke maa fortaelle. */
+   smalle barer ud i bredden. */
 .bar-value {
   position: absolute; top: 0; bottom: 0;
   display: flex; align-items: center;
@@ -125,7 +162,6 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
   white-space: nowrap;
   color: #17140f;
 }
-/* For kort bar til at rumme tallet: saet det udenfor, i laesbar farve. */
 .bar-value.outside { color: var(--muted); font-weight: 500; }
 /* Farverne har et rangfoelge-problem: en aften kan baade vaere lille og
    ufuldstaendig. "Ufuldstaendig" vinder altid, fordi den er grunden til, at
@@ -134,7 +170,6 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .bar-row .bar-fill.partial { background: linear-gradient(90deg, rgba(192,122,74,0.42), rgba(192,122,74,0.68)); }
 .bar-meta { font-size: 0.82rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* 3-timers-loeftet tegnet ind. Alt til hoejre for stregen er over vinduet. */
 .limit { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed rgba(236,227,210,0.42); }
 .limit span {
   position: absolute; top: -1.35rem; left: 0.4rem;
@@ -145,14 +180,9 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .legend { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.5rem; font-size: 0.82rem; color: var(--muted); }
 .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
 
-/* ---------- TIER-KORT ---------- */
+/* ---------- TIER CARDS ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1.25rem;
-}
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; }
 .card h3 { margin: 0 0 0.15rem; font-size: 1rem; }
 .card .prog { color: var(--gold); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
 .card .time { margin-top: 1rem; font-size: 1.9rem; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -162,7 +192,7 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .card details ul { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
 .card details li { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-/* ---------- FORRIGE TIER ---------- */
+/* ---------- PREVIOUS TIER ---------- */
 .previous {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -174,10 +204,33 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .previous b { color: var(--text); font-variant-numeric: tabular-nums; }
 
 /* ---------- APPLY ---------- */
+/* Illidan staar bag ansoegningen med vilje: han ER naeste tier. Sektionen
+   handler om at komme med videre, og kunsten siger hvorhen. */
+.apply-section { position: relative; }
+.apply-art {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  transform: translateX(-50%);
+  height: 100%;
+  z-index: -1;
+  background: url("art/t6-illidan.webp") center 32% / cover no-repeat;
+}
+/* Illidan maa gerne ses — men teksten i boksen skal vinde. Boksen har sit
+   eget panel med blur ovenpaa, saa sloeret her maa vaere lettere end i hero'en. */
+.apply-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(13,12,11,0.55) 22%, rgba(13,12,11,0.6) 72%, var(--bg) 100%);
+}
 .apply {
   border: 1px solid rgba(200,164,92,0.45);
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(200,164,92,0.07), var(--panel));
+  background: linear-gradient(180deg, rgba(200,164,92,0.07), rgba(20,18,15,0.86));
+  backdrop-filter: blur(8px);
   padding: clamp(1.5rem, 4vw, 2.25rem);
   display: grid;
   gap: 1.5rem;
@@ -187,13 +240,9 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .apply h2 { margin-bottom: 0.75rem; }
 .apply p { margin: 0 0 0.6rem; color: var(--muted); }
 .needs { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.need {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.3rem 0.75rem;
-  font-size: 0.85rem;
-}
+.need { border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; }
 .need.hot { border-color: rgba(200,164,92,0.6); color: var(--gold); }
+
 /* Sticky apply — foelger med ned, saa knappen ikke bliver overset.
    Skjules naar den rigtige apply-sektion er i syne (styres i JS). */
 .sticky {
@@ -201,13 +250,11 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
   right: 1.25rem;
   bottom: 1.25rem;
   z-index: 5;
+  width: auto;   /* .btn er fuld bredde som standard — her kun sin egen tekst */
   box-shadow: 0 8px 28px rgba(0,0,0,0.5);
   transition: opacity 0.25s, transform 0.25s;
 }
 .sticky[hidden] { display: block; opacity: 0; transform: translateY(0.75rem); pointer-events: none; }
-/* .btn er fuld bredde som standard (formularen vil have det saadan) — den
-   flydende knap skal kun fylde sin egen tekst. */
-.sticky { width: auto; }
 </style>
 </head>
 <body>
@@ -216,16 +263,19 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 <div class="shell">
 
   <header>
-    <div class="eyebrow">
-      <strong>Omen</strong><span class="dot"></span>
-      <span>EU · Spineshatter</span><span class="dot"></span>
-      <span>Semi-hardcore</span>
-    </div>
+    <div class="hero-art" role="img" aria-label="Kael'thas Sunstrider and Lady Vashj"></div>
 
-    <p class="question">Kan de clear alt inden for 3 timer?</p>
+    <h1 class="masthead">Omen</h1>
+    <p class="tagline">
+      <span>EU · Spineshatter</span><span class="dot"></span>
+      <span>Horde</span><span class="dot"></span>
+      <span>Semi-hardcore</span>
+    </p>
+
+    <p class="question">Can they clear it all in under 3 hours?</p>
     <div class="headline">
       <span class="figure" id="median">—</span>
-      <span class="qualifier" id="median-note">henter data…</span>
+      <span class="qualifier" id="median-note">loading…</span>
     </div>
 
     <div class="verdict" id="verdict" hidden>
@@ -233,56 +283,57 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
     </div>
 
     <dl class="facts">
-      <div class="fact"><dt>Progression</dt><dd id="prog">—</dd></div>
-      <div class="fact"><dt>Raidtider</dt><dd>To 20:30–23:30<small>+ søndag, optional</small></dd></div>
-      <div class="fact"><dt>Hurtigste</dt><dd id="best">—<small>rekord, ikke normen</small></dd></div>
+      <div class="fact"><dt>Progress</dt><dd id="prog">—</dd></div>
+      <div class="fact"><dt>Raid times</dt><dd>Thu 20:30–23:30<small>+ optional Sunday</small></dd></div>
+      <div class="fact"><dt>Fastest</dt><dd id="best">—<small>the record, not the norm</small></dd></div>
       <div class="fact"><dt>Loot</dt><dd>Loot Council<small>RCLootCouncil</small></dd></div>
     </dl>
   </header>
 
   <section>
-    <h2>Hver raidaften, ikke de pæne</h2>
+    <h2>Every raid night, not just the good ones</h2>
     <p class="lede">
-      Hver bar er én aften: første pull til sidste boss død, inklusive trash og wipes.
-      Den stiplede streg er de 3 timer, raidet er annonceret til.
+      One bar per night: first pull to last boss down, trash and wipes included.
+      The dashed line is the 3 hours the raid is advertised as.
     </p>
     <div class="bars-wrap">
-      <div class="bars" id="bars"><p class="loading">henter data…</p></div>
+      <div class="bars" id="bars"><p class="loading">loading…</p></div>
     </div>
     <div class="legend">
-      <span><i style="background:rgba(200,164,92,0.75)"></i>Fuld clear, 24–25 mand</span>
-      <span><i style="background:rgba(140,150,175,0.6)"></i>Under 24 mand</span>
-      <span><i style="background:rgba(192,122,74,0.6)"></i>Ufuldstændig — tæller ikke med</span>
+      <span><i style="background:rgba(200,164,92,0.75)"></i>Full clear, 24–25 raiders</span>
+      <span><i style="background:rgba(140,150,175,0.6)"></i>Under 24 raiders</span>
+      <span><i style="background:rgba(192,122,74,0.6)"></i>Incomplete — excluded from the median</span>
     </div>
   </section>
 
   <section>
-    <h2 id="tier-title">Nuværende tier</h2>
-    <p class="lede">Tiden pr. instance. Klap ud for kill-tider på de enkelte bosser.</p>
-    <div class="cards" id="cards"><p class="loading">henter data…</p></div>
+    <h2 id="tier-title">Current tier</h2>
+    <p class="lede">Time per instance. Expand for individual boss kill times.</p>
+    <div class="cards" id="cards"><p class="loading">loading…</p></div>
   </section>
 
   <section>
-    <h2>Forrige tier</h2>
-    <p class="lede">Det er kurven, der er pointen. Samme kurve venter T6.</p>
+    <h2>Previous tier</h2>
+    <p class="lede">The curve is the point. The same curve is waiting for T6.</p>
     <p class="previous" id="previous">—</p>
   </section>
 
-  <section>
+  <section class="apply-section">
+    <div class="apply-art" role="img" aria-label="Illidan Stormrage at the Black Temple"></div>
     <div class="apply">
       <div>
-        <h2>Ansøg</h2>
+        <h2>Apply</h2>
         <p>
-          Vi raider to aftener om ugen og bruger dem. Møder du op forberedt, kender
-          din klasse og kan tage kritik uden at gå i baglås, passer du ind.
+          We raid two nights a week and we use them. Show up prepared, know your
+          class, and take feedback without locking up — that is the whole bar.
         </p>
-        <p>Kontakt: <b>Boodu</b> eller <b>Raîns</b> på Discord.</p>
+        <p>Reach out to <b>Boodu</b> or <b>Raîns</b> on Discord.</p>
         <div class="needs" id="needs"></div>
       </div>
       <div>
-        <a class="btn" href="apply.html">Send en ansøgning</a>
+        <a class="btn" href="apply.html">Send an application</a>
         <p style="margin-top:0.75rem;font-size:0.82rem;text-align:center;color:var(--muted)">
-          Seks felter. Ingen essays.
+          Six fields. No essays.
         </p>
       </div>
     </div>
@@ -290,31 +341,46 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 
   <footer>
     <p>
-      Tallene hentes automatisk fra
-      <a href="https://fresh.warcraftlogs.com/guild/id/809023" target="_blank" rel="noopener">WarcraftLogs</a>
-      og er ikke redigeret i hånden. Median — aldrig rekord.
+      Numbers are pulled automatically from
+      <a href="https://fresh.warcraftlogs.com/guild/id/809023" target="_blank" rel="noopener">Warcraft Logs</a>
+      and are never edited by hand. Median — never the record.
     </p>
     <p id="freshness">—</p>
+    <p style="margin-top:1rem;opacity:0.65">
+      Artwork © Blizzard Entertainment. Fan site, not affiliated with Blizzard.
+    </p>
   </footer>
 </div>
 
-<a class="btn sticky" id="sticky" href="apply.html" hidden>Ansøg</a>
+<a class="btn sticky" id="sticky" href="apply.html" hidden>Apply</a>
 
 <script>
-// REKRUTTERINGSBEHOV — det eneste paa siden, der vedligeholdes i haanden.
-// "hot: true" fremhaever. Ret her, naar behovet aendrer sig.
+// RECRUITMENT NEEDS — the only thing on this page maintained by hand.
+// "hot: true" highlights it. Edit here when the needs change.
 const NEEDS = [
-  { role: "Dreamstate-druide", hot: true },
-  { role: "Resto-shaman", hot: false },
-  { role: "Exceptionelle ansøgere", hot: false },
+  { role: "Dreamstate Druid", hot: true },
+  { role: "Resto Shaman", hot: false },
+  { role: "Exceptional applicants", hot: false },
 ];
 
 const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 const fmt = (ms) => {
   const total = Math.round(ms / 60000);
   const h = Math.floor(total / 60), m = total % 60;
-  return h ? `${h}t${String(m).padStart(2, "0")}` : `${m} min`;
+  return h ? `${h}h${String(m).padStart(2, "0")}` : `${m} min`;
+};
+
+// Datoer skrives med maanedsnavn. "06-08" er tvetydigt for et internationalt
+// publikum — halvdelen laeser det som 8. juni.
+const shortDate = (iso) => {
+  const d = new Date(iso);
+  return `${d.getDate()} ${MONTHS[d.getMonth()]}`;
+};
+const longDate = (iso) => {
+  const d = new Date(iso);
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 };
 
 fetch("data.json")
@@ -323,7 +389,7 @@ fetch("data.json")
   .catch((err) => {
     // Siden maa aldrig staa tom uden forklaring — saa er den vaerre end ingen side.
     document.getElementById("median-note").textContent =
-      "kunne ikke hente data — prøv at genindlæse";
+      "could not load the data — try reloading";
     console.error(err);
   });
 
@@ -333,24 +399,24 @@ function render(data) {
   // ---- HERO ----
   document.getElementById("median").textContent = s.median_display;
   document.getElementById("median-note").innerHTML =
-    `median over <b>${s.nights_in_window}</b> raidaftener` +
-    `<br>seneste ${s.window_days} dage`;
+    `median across <b>${s.nights_in_window}</b> raid nights` +
+    `<br>last ${s.window_days} days`;
 
   const under = s.median_wallclock_ms <= THREE_HOURS_MS;
   const verdict = document.getElementById("verdict");
   verdict.hidden = false;
   verdict.classList.toggle("over", !under);
   document.getElementById("verdict-text").textContent = under
-    ? `Ja — med ${fmt(THREE_HOURS_MS - s.median_wallclock_ms)} til overs`
-    : `Nej — ${fmt(s.median_wallclock_ms - THREE_HOURS_MS)} over vinduet`;
+    ? `Yes — with ${fmt(THREE_HOURS_MS - s.median_wallclock_ms)} to spare`
+    : `No — ${fmt(s.median_wallclock_ms - THREE_HOURS_MS)} over the window`;
 
   const prog = data.progression[s.tier];
   document.getElementById("prog").innerHTML =
     `${prog.killed}/${prog.total} ${s.tier}<small>${s.tier_zones.join(" · ")}</small>`;
   document.getElementById("best").innerHTML =
-    `${s.best_display}<small>rekord, ikke normen</small>`;
+    `${s.best_display}<small>the record, not the norm</small>`;
 
-  // ---- KONSISTENSSTRIBE ----
+  // ---- CONSISTENCY BARS ----
   // Kun aftener i den nuvaerende tier — Karazhan-aftener hoerer ikke til her.
   const nights = data.raids
     .filter((r) => r.zones.some((z) => z.tier === s.tier))
@@ -370,23 +436,18 @@ function render(data) {
     // enten mangler der kills i en zone, eller ogsaa blev zonen slet ikke besoegt.
     const short = (name) => name.replace("Serpentshrine Cavern", "SSC");
     const incomplete = night.zones.filter((z) => !z.complete);
-    const untouched = s.tier_zones.filter(
-      (name) => !night.zones.some((z) => z.zone === name)
-    );
+    const untouched = s.tier_zones.filter((name) => !night.zones.some((z) => z.zone === name));
 
     let label;
     if (incomplete.length) {
-      label = incomplete
-        .map((z) => `${short(z.zone)} ${z.boss_kills}/${z.boss_count_expected}`)
-        .join(", ");
+      label = incomplete.map((z) => `${short(z.zone)} ${z.boss_kills}/${z.boss_count_expected}`).join(", ");
     } else if (untouched.length) {
-      label = `kun ${night.zones.map((z) => short(z.zone)).join(" + ")}`;
+      label = `${night.zones.map((z) => short(z.zone)).join(" + ")} only`;
     } else {
-      label = `${night.raid_size} mand`;
+      label = `${night.raid_size} raiders`;
     }
 
-    // Under ~30% er baren for kort til at rumme sit eget tal. Graensen er sat
-    // efter det bredeste tal ("3t35") ved den smalleste kolonne, ikke gaettet.
+    // Under ~30% er baren for kort til at rumme sit eget tal.
     const pct = (night.session_wallclock_ms / scale) * 100;
     const outside = pct < 30;
     const valueStyle = outside
@@ -394,18 +455,17 @@ function render(data) {
       : `right:calc(100% - ${pct}% + 0.6rem)`;
 
     row.innerHTML = `
-      <span class="bar-date">${night.date.slice(0, 5)}</span>
+      <span class="bar-date">${shortDate(night.started_at)}</span>
       <div class="bar-track">
         <div class="bar-fill${night.full_tier_clear ? "" : " partial"}" style="width:${pct}%"></div>
         <span class="bar-value${outside ? " outside" : ""}" style="${valueStyle}">
           ${fmt(night.session_wallclock_ms)}
         </span>
       </div>
-      <span class="bar-meta" title="${night.raid_size} mand">${label}</span>`;
+      <span class="bar-meta" title="${night.raid_size} raiders">${label}</span>`;
     bars.appendChild(row);
   });
 
-  // Stregen skal ligge i sporet, ikke i raekken — derfor samme skalering.
   // Sporet starter efter dato-kolonnen + gap, og slutter foer meta-kolonnen +
   // gap. Samme tal som grid'et, laest fra CSS'en frem for skrevet af igen.
   const limit = document.createElement("div");
@@ -413,11 +473,11 @@ function render(data) {
   limit.style.left =
     `calc(var(--col-date) + 1rem` +
     ` + (100% - var(--col-date) - var(--col-meta) - 2rem) * ${THREE_HOURS_MS / scale})`;
-  limit.innerHTML = "<span>3 timer</span>";
+  limit.innerHTML = "<span>3 hours</span>";
   bars.appendChild(limit);
 
-  // ---- TIER-KORT ----
-  document.getElementById("tier-title").textContent = `Nuværende tier — ${s.tier}`;
+  // ---- TIER CARDS ----
+  document.getElementById("tier-title").textContent = `Current tier — ${s.tier}`;
   const cards = document.getElementById("cards");
   cards.innerHTML = "";
 
@@ -431,41 +491,34 @@ function render(data) {
     card.className = "card";
     card.innerHTML = `
       <h3>${zoneName}</h3>
-      <div class="prog">${p.killed}/${p.total} bosser</div>
+      <div class="prog">${p.killed}/${p.total} bosses</div>
       <div class="time">${zone ? fmt(zone.wallclock_ms) : "—"}
-        <small>seneste fulde clear · ${latest ? latest.date : ""}</small>
+        <small>latest full clear · ${latest ? longDate(latest.started_at) : ""}</small>
       </div>
       ${zone ? `<details>
-        <summary>Kill-tider</summary>
+        <summary>Kill times</summary>
         <ul>${zone.bosses.map((b) => `<li><span>${b.name}</span><span>${fmt(b.duration_ms)}</span></li>`).join("")}</ul>
       </details>` : ""}`;
     cards.appendChild(card);
   });
 
-  // ---- FORRIGE TIER ----
+  // ---- PREVIOUS TIER ----
   const prev = data.previous_tier;
   document.getElementById("previous").innerHTML = prev.median_display
     ? `<b>${prev.zones.join(", ")}</b> — ${prev.clear_count} clears, median
-       <b>${prev.median_display}</b>, hurtigst <b>${prev.best_display}</b>.
-       Der gik <b>${prev.weeks_to_best} uger</b> fra første clear til den hurtigste.`
-    : "Ingen fulde clears registreret i forrige tier.";
+       <b>${prev.median_display}</b>, fastest <b>${prev.best_display}</b>.
+       It took <b>${prev.weeks_to_best} weeks</b> to go from the first clear to the fastest one.`
+    : "No full clears recorded for the previous tier.";
 
-  // ---- FOODEREN ----
-  // Dansk datoformat, DD/MM/AAAA. toLocaleDateString("da-DK") giver "13.8.2026"
-  // uden nuller, og det er ikke formatet.
-  const g = new Date(data.generated_at);
-  const dk = [g.getDate(), g.getMonth() + 1]
-    .map((n) => String(n).padStart(2, "0"))
-    .join("/") + "/" + g.getFullYear();
-
-  // "senest aendret", ikke "opdateret": filen skrives kun, naar tallene har
+  // ---- FOOTER ----
+  // "last changed", ikke "updated": filen skrives kun, naar tallene har
   // flyttet sig, saa datoen er den sidste aendring — ikke sidste tjek.
   document.getElementById("freshness").textContent =
-    `Tallene senest ændret ${dk} · ` +
-    `${s.report_count} logs → ${s.night_count} raidaftener → ${s.full_clear_count} fulde ${s.tier}-clears · ` +
-    `seneste fulde clear for ${s.days_since_last_full_clear} dage siden`;
+    `Numbers last changed ${longDate(data.generated_at)} · ` +
+    `${s.report_count} logs → ${s.night_count} raid nights → ${s.full_clear_count} full ${s.tier} clears · ` +
+    `latest full clear ${s.days_since_last_full_clear} days ago`;
 
-  // ---- BEHOV ----
+  // ---- NEEDS ----
   document.getElementById("needs").innerHTML = NEEDS.map(
     (n) => `<span class="need${n.hot ? " hot" : ""}">${n.role}</span>`
   ).join("");
@@ -474,11 +527,10 @@ function render(data) {
 // Sticky-knappen forsvinder, naar den rigtige apply-boks er i syne — ellers
 // staar der to identiske knapper og konkurrerer.
 const sticky = document.getElementById("sticky");
-const applyBox = document.querySelector(".apply");
 new IntersectionObserver(
   ([entry]) => { sticky.hidden = entry.isIntersecting; },
   { threshold: 0.25 }
-).observe(applyBox);
+).observe(document.querySelector(".apply"));
 </script>
 </body>
 </html>
