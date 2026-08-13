@@ -1,0 +1,2384 @@
+{
+  "generated_at": "2026-08-13T10:00:05+00:00",
+  "guild": {
+    "name": "Omen",
+    "realm": "Spineshatter",
+    "region": "EU",
+    "id": 809023
+  },
+  "summary": {
+    "tier": "T5",
+    "tier_zones": [
+      "Serpentshrine Cavern",
+      "The Eye"
+    ],
+    "nights_in_window": 5,
+    "window_days": 56,
+    "window_extended": false,
+    "median_wallclock_ms": 10566370,
+    "median_display": "2t56",
+    "best_wallclock_ms": 9271532,
+    "best_display": "2t35",
+    "report_count": 66,
+    "night_count": 32,
+    "full_clear_count": 8,
+    "days_since_last_full_clear": 20
+  },
+  "window": [
+    "2yp3JHDGZxA7f8MQ",
+    "KrH4FZRnvtM9fxB1",
+    "t8bmZ3G4Yy2XKfPh",
+    "tdZgWKV3G87TfQcA",
+    "7d2vwTJgtbYVPaDq"
+  ],
+  "raids": [
+    {
+      "code": "YKZWDmNkjBtav1ng",
+      "title": "25 man",
+      "date": "06-08-2026",
+      "started_at": "2026-08-06T18:54:28+00:00",
+      "session_wallclock_ms": 8582515,
+      "zones_wallclock_ms": 7279287,
+      "raid_size": 25,
+      "boss_kills": 11,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4355046,
+          "boss_time_ms": 1021576,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 83449
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 147678
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 157167
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 103694
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 122601
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 406987
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 2314752,
+          "boss_time_ms": 545998,
+          "boss_kills": 3,
+          "boss_count_expected": 4,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 59680
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 125446
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 360872
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 609489,
+          "boss_time_ms": 128386,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 28649
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 99737
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2yp3JHDGZxA7f8MQ",
+      "title": "full 25 tier 5 baby",
+      "date": "23-07-2026",
+      "started_at": "2026-07-23T18:32:20+00:00",
+      "session_wallclock_ms": 11854968,
+      "zones_wallclock_ms": 10742181,
+      "raid_size": 25,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 5938002,
+          "boss_time_ms": 1083219,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 95221
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 152885
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 108235
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 170931
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 153314
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 402633
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4101992,
+          "boss_time_ms": 846800,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 24,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 244129
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 62753
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 134797
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 405121
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 702187,
+          "boss_time_ms": 197948,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 32617
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 165331
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "dzfTgtLxapmBwJGq",
+      "title": "SSC / TK",
+      "date": "16-07-2026",
+      "started_at": "2026-07-16T18:27:15+00:00",
+      "session_wallclock_ms": 10118826,
+      "zones_wallclock_ms": 9520193,
+      "raid_size": 23,
+      "boss_kills": 9,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 6698471,
+          "boss_time_ms": 1151406,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 23,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 115390
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 165005
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 143733
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 116930
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 202503
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 407845
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 2821722,
+          "boss_time_ms": 602270,
+          "boss_kills": 3,
+          "boss_count_expected": 4,
+          "complete": false,
+          "raid_size": 23,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 330111
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 114002
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 158157
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "KrH4FZRnvtM9fxB1",
+      "title": "SSC / TK",
+      "date": "09-07-2026",
+      "started_at": "2026-07-09T18:34:36+00:00",
+      "session_wallclock_ms": 10712683,
+      "zones_wallclock_ms": 9787570,
+      "raid_size": 24,
+      "boss_kills": 10,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 5438122,
+          "boss_time_ms": 1336282,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 24,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 127187
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 217428
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 175533
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 146275
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 180366
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 489493
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4349448,
+          "boss_time_ms": 1046350,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 23,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 301441
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 108657
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 164235
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 472017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "t8bmZ3G4Yy2XKfPh",
+      "title": "SSC / TK",
+      "date": "02-07-2026",
+      "started_at": "2026-07-02T18:38:49+00:00",
+      "session_wallclock_ms": 10566370,
+      "zones_wallclock_ms": 9159958,
+      "raid_size": 25,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4539218,
+          "boss_time_ms": 959958,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 83729
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 150643
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 99558
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 148123
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 96643
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 381262
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4005060,
+          "boss_time_ms": 821547,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 234912
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 63401
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 135388
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 387846
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 615680,
+          "boss_time_ms": 139540,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 24,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 30954
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 108586
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "tdZgWKV3G87TfQcA",
+      "title": "SSC / TK",
+      "date": "25-06-2026",
+      "started_at": "2026-06-25T18:40:42+00:00",
+      "session_wallclock_ms": 9271532,
+      "zones_wallclock_ms": 8155808,
+      "raid_size": 25,
+      "boss_kills": 10,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4385263,
+          "boss_time_ms": 1089967,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 103305
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 149393
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 160053
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 105964
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 143395
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 427857
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 3770545,
+          "boss_time_ms": 857423,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 240485
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 66422
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 143473
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 407043
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7d2vwTJgtbYVPaDq",
+      "title": "tier 5, baby!",
+      "date": "18-06-2026",
+      "started_at": "2026-06-18T18:36:01+00:00",
+      "session_wallclock_ms": 10481322,
+      "zones_wallclock_ms": 9142061,
+      "raid_size": 25,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4345404,
+          "boss_time_ms": 1075886,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 90264
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 150978
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 164457
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 125295
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 150410
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 394482
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4179151,
+          "boss_time_ms": 900268,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 243900
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 152645
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 103703
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 400020
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 617506,
+          "boss_time_ms": 186504,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 23442
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 163062
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "fnR9adJDzkHxKMTb",
+      "title": "tier 5 baby",
+      "date": "11-06-2026",
+      "started_at": "2026-06-11T18:44:32+00:00",
+      "session_wallclock_ms": 12384081,
+      "zones_wallclock_ms": 10890519,
+      "raid_size": 25,
+      "boss_kills": 10,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 5569690,
+          "boss_time_ms": 1167967,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 112874
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 193822
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 184460
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 109955
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 161222
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 405634
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 5320829,
+          "boss_time_ms": 922014,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 252618
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 149208
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 111874
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 408314
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "Rxg4WdQYrPNwH7KG",
+      "title": "SSC / TK",
+      "date": "04-06-2026",
+      "started_at": "2026-06-04T18:26:31+00:00",
+      "session_wallclock_ms": 10875128,
+      "zones_wallclock_ms": 9611309,
+      "raid_size": 25,
+      "boss_kills": 10,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 5675501,
+          "boss_time_ms": 1192250,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 103145
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 185861
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 180975
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 115265
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 165497
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 441507
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 3935808,
+          "boss_time_ms": 980335,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 261341
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 142529
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 127948
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 448517
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LyCDkwMdAG1mntQF",
+      "title": "SSC / TK",
+      "date": "31-05-2026",
+      "started_at": "2026-05-31T18:46:40+00:00",
+      "session_wallclock_ms": 4336718,
+      "zones_wallclock_ms": 4336718,
+      "raid_size": 25,
+      "boss_kills": 4,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4336718,
+          "boss_time_ms": 982904,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 284779
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 153802
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 113443
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 430880
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4Vzmy6nWCQdt1qva",
+      "title": "SSC / TK",
+      "date": "28-05-2026",
+      "started_at": "2026-05-28T18:42:29+00:00",
+      "session_wallclock_ms": 9124944,
+      "zones_wallclock_ms": 9124944,
+      "raid_size": 23,
+      "boss_kills": 6,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 9124944,
+          "boss_time_ms": 1500857,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 23,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 162739
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 201030
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 213192
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 137753
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 211821
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 574322
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "9gtD4HbBCRWXTPAv",
+      "title": "Omen - SSC/TK",
+      "date": "21-05-2026",
+      "started_at": "2026-05-21T18:14:34+00:00",
+      "session_wallclock_ms": 12896004,
+      "zones_wallclock_ms": 12018949,
+      "raid_size": 25,
+      "boss_kills": 10,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 7178970,
+          "boss_time_ms": 1339827,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 124641
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 169806
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 168688
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 138673
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 213791
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 524228
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 4839979,
+          "boss_time_ms": 1129901,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 296967
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 157148
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 115683
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 560103
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ZBGR9QpcCqPKVdvj",
+      "title": "Omen - SSC/TK",
+      "date": "19-05-2026",
+      "started_at": "2026-05-19T18:28:48+00:00",
+      "session_wallclock_ms": 9465488,
+      "zones_wallclock_ms": 9465488,
+      "raid_size": 24,
+      "boss_kills": 6,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 9465488,
+          "boss_time_ms": 1632227,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 24,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 138175
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 228488
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 206896
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 226124
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 213707
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 618837
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "nhmvjMKkH3TZaXN2",
+      "title": "SSC / TK",
+      "date": "17-05-2026",
+      "started_at": "2026-05-17T18:34:20+00:00",
+      "session_wallclock_ms": 8376431,
+      "zones_wallclock_ms": 8376431,
+      "raid_size": 25,
+      "boss_kills": 4,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 8376431,
+          "boss_time_ms": 1090957,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 313155
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 193270
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 129072
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 455460
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "jvpCM7n3XLbKqTdQ",
+      "title": "Omen - Kara (2)",
+      "date": "14-05-2026",
+      "started_at": "2026-05-14T19:24:21+00:00",
+      "session_wallclock_ms": 4773177,
+      "zones_wallclock_ms": 4773177,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 4773177,
+          "boss_time_ms": 822089,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 46813
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 34908
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 32095
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 76061
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 239849
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 53064
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 43448
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 69557
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 60104
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 67247
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 98943
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3Fadxk4tRzv2XfbM",
+      "title": "Omen - Kara (2)",
+      "date": "07-05-2026",
+      "started_at": "2026-05-07T19:24:31+00:00",
+      "session_wallclock_ms": 5549211,
+      "zones_wallclock_ms": 5549211,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5549211,
+          "boss_time_ms": 855275,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 60538
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 34989
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 26287
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 73183
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 232721
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 45021
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 72256
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 55902
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 66161
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 97511
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 90706
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "RwgbQxpGtP31XNhv",
+      "title": "Omen - Kara 2",
+      "date": "30-04-2026",
+      "started_at": "2026-04-30T19:30:28+00:00",
+      "session_wallclock_ms": 5161776,
+      "zones_wallclock_ms": 5161776,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5161776,
+          "boss_time_ms": 1078742,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 81349
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 61231
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 51163
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 93155
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 266034
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 82704
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 54203
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 76183
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 82087
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 92123
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 138510
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "nVAv9FLbkGH8Z7Pc",
+      "title": "Omen - Kara (2)",
+      "date": "23-04-2026",
+      "started_at": "2026-04-23T19:26:31+00:00",
+      "session_wallclock_ms": 6445687,
+      "zones_wallclock_ms": 6445687,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 6445687,
+          "boss_time_ms": 935526,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 51130
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 68446
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 27925
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 35927
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 262509
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 72627
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 63660
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 56630
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 82081
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 78141
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 136450
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "mTVW3FAq6k4wDHxf",
+      "title": "a lil bit of kara",
+      "date": "16-04-2026",
+      "started_at": "2026-04-16T19:16:00+00:00",
+      "session_wallclock_ms": 5663874,
+      "zones_wallclock_ms": 5663874,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5663874,
+          "boss_time_ms": 900084,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 65045
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 38479
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 31031
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 98528
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 240321
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 61205
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 46379
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 64577
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 66072
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 80251
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 108196
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "jKg6py8JwmrNaWtf",
+      "title": "Omen - Kara (2)",
+      "date": "09-04-2026",
+      "started_at": "2026-04-09T19:58:12+00:00",
+      "session_wallclock_ms": 5077549,
+      "zones_wallclock_ms": 5077549,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5077549,
+          "boss_time_ms": 873671,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 61323
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 37645
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 38110
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 27734
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 259120
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 61932
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 41733
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 68152
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 73266
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 83567
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 121089
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "KMGVaLfzNpjyQd8J",
+      "title": "Omen - Kara (1)",
+      "date": "02-04-2026",
+      "started_at": "2026-04-02T19:03:10+00:00",
+      "session_wallclock_ms": 6728988,
+      "zones_wallclock_ms": 6728988,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 6728988,
+          "boss_time_ms": 1137654,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 100707
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 59206
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 40674
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 96401
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 252641
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 65714
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 97848
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 73940
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 83407
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 107019
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 160097
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GNkYXZ3FavgrqB6x",
+      "title": "Omen - Kara (2)",
+      "date": "26-03-2026",
+      "started_at": "2026-03-26T20:34:58+00:00",
+      "session_wallclock_ms": 5579302,
+      "zones_wallclock_ms": 5579302,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5579302,
+          "boss_time_ms": 933093,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 56754
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 38566
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 35439
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 37824
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 262190
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 72231
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 41862
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 83192
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 73236
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 117227
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 114572
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "FXxW6Mfyd1khm4nN",
+      "title": "Omen - Kara (1)",
+      "date": "19-03-2026",
+      "started_at": "2026-03-19T20:24:44+00:00",
+      "session_wallclock_ms": 5743730,
+      "zones_wallclock_ms": 5743730,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5743730,
+          "boss_time_ms": 991111,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 69103
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 33474
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 45316
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 40000
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 280744
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 69466
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 48686
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 96500
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 82855
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 105650
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 119317
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1cLqGdFfkQz3wt7Y",
+      "title": "Omen - Kara (1)",
+      "date": "12-03-2026",
+      "started_at": "2026-03-12T20:38:36+00:00",
+      "session_wallclock_ms": 5706202,
+      "zones_wallclock_ms": 5706202,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5706202,
+          "boss_time_ms": 1219229,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 90741
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 73869
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 50359
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 108220
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 304748
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 86507
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 65427
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 97445
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 149287
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 76059
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 116567
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "q7wx6BDKfNgT4rXy",
+      "title": "Omen - Kara (1)",
+      "date": "05-03-2026",
+      "started_at": "2026-03-05T20:24:01+00:00",
+      "session_wallclock_ms": 9134711,
+      "zones_wallclock_ms": 9134711,
+      "raid_size": 9,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 9134711,
+          "boss_time_ms": 1485784,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 9,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 89690
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 89334
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 50083
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 122977
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 334922
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 130025
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 74932
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 147858
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 167332
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 106080
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 172551
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "jJ4MQ27P6XTbw3pH",
+      "title": "Omen - Kara (1)",
+      "date": "26-02-2026",
+      "started_at": "2026-02-26T20:28:58+00:00",
+      "session_wallclock_ms": 7257614,
+      "zones_wallclock_ms": 7257614,
+      "raid_size": 10,
+      "boss_kills": 11,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 7257614,
+          "boss_time_ms": 1458784,
+          "boss_kills": 11,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 87491
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 87343
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 56152
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 114977
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 305673
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 89867
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 70992
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 98156
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 255738
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 154986
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 137409
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "v67KMPX3zTmfwD4t",
+      "title": "Omen - Kara Clean Up + Nightbane (1)",
+      "date": "24-02-2026",
+      "started_at": "2026-02-24T19:27:18+00:00",
+      "session_wallclock_ms": 6378465,
+      "zones_wallclock_ms": 6047158,
+      "raid_size": 10,
+      "boss_kills": 4,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 6047158,
+          "boss_time_ms": 878859,
+          "boss_kills": 4,
+          "boss_count_expected": 10,
+          "complete": false,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Netherspite",
+              "duration_ms": 160079
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 168667
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 201034
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 349079
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3DmrtYNwxyMv9WaB",
+      "title": "Omen - Gruul's Lair, Magtheridon & Kara (2)",
+      "date": "22-02-2026",
+      "started_at": "2026-02-22T19:22:30+00:00",
+      "session_wallclock_ms": 13599369,
+      "zones_wallclock_ms": 12122204,
+      "raid_size": 25,
+      "boss_kills": 13,
+      "complete": true,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 7120201,
+          "boss_time_ms": 1089242,
+          "boss_kills": 10,
+          "boss_count_expected": 10,
+          "complete": true,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Attumen the Huntsman",
+              "duration_ms": 82529
+            },
+            {
+              "name": "Moroes",
+              "duration_ms": 95887
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 62688
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 119782
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 106641
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 87487
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 127785
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 163286
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 95237
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 147920
+            }
+          ]
+        },
+        {
+          "zone": "Magtheridon's Lair",
+          "tier": "T4",
+          "wallclock_ms": 3202068,
+          "boss_time_ms": 263426,
+          "boss_kills": 1,
+          "boss_count_expected": 1,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Magtheridon",
+              "duration_ms": 263426
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 1799935,
+          "boss_time_ms": 275362,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 82335
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 193027
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "Mqm4hzryCcQXG3Df",
+      "title": "Omen - ZG + AQ20",
+      "date": "01-02-2026",
+      "started_at": "2026-02-01T19:27:07+00:00",
+      "session_wallclock_ms": 4550213,
+      "zones_wallclock_ms": 4115934,
+      "raid_size": 19,
+      "boss_kills": 14,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Ruins of Ahn'Qiraj",
+          "tier": null,
+          "wallclock_ms": 2094318,
+          "boss_time_ms": 510570,
+          "boss_kills": 6,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 19,
+          "bosses": [
+            {
+              "name": "Kurinnaxx",
+              "duration_ms": 39373
+            },
+            {
+              "name": "General Rajaxx",
+              "duration_ms": 243729
+            },
+            {
+              "name": "Buru the Gorger",
+              "duration_ms": 88042
+            },
+            {
+              "name": "Moam",
+              "duration_ms": 26291
+            },
+            {
+              "name": "Ossirian the Unscarred",
+              "duration_ms": 59420
+            },
+            {
+              "name": "Ayamiss the Hunter",
+              "duration_ms": 53715
+            }
+          ]
+        },
+        {
+          "zone": "Zul'Gurub",
+          "tier": null,
+          "wallclock_ms": 2021616,
+          "boss_time_ms": 262026,
+          "boss_kills": 8,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 19,
+          "bosses": [
+            {
+              "name": "High Priestess Jeklik",
+              "duration_ms": 28995
+            },
+            {
+              "name": "High Priest Venoxis",
+              "duration_ms": 23815
+            },
+            {
+              "name": "High Priestess Mar'li",
+              "duration_ms": 24417
+            },
+            {
+              "name": "Bloodlord Mandokir",
+              "duration_ms": 36184
+            },
+            {
+              "name": "High Priest Thekal",
+              "duration_ms": 48036
+            },
+            {
+              "name": "High Priestess Arlokk",
+              "duration_ms": 20231
+            },
+            {
+              "name": "Jin'do the Hexxer",
+              "duration_ms": 24731
+            },
+            {
+              "name": "Hakkar",
+              "duration_ms": 55617
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "qWJjKf6ZXtL941mb",
+      "title": "Omen - BWL Pug",
+      "date": "25-01-2026",
+      "started_at": "2026-01-25T19:54:13+00:00",
+      "session_wallclock_ms": 5003622,
+      "zones_wallclock_ms": 5003622,
+      "raid_size": 39,
+      "boss_kills": 8,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Blackwing Lair",
+          "tier": null,
+          "wallclock_ms": 5003622,
+          "boss_time_ms": 521120,
+          "boss_kills": 8,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 39,
+          "bosses": [
+            {
+              "name": "Razorgore the Untamed",
+              "duration_ms": 23544
+            },
+            {
+              "name": "Vaelastrasz the Corrupt",
+              "duration_ms": 47882
+            },
+            {
+              "name": "Broodlord Lashlayer",
+              "duration_ms": 38395
+            },
+            {
+              "name": "Firemaw",
+              "duration_ms": 68520
+            },
+            {
+              "name": "Ebonroc",
+              "duration_ms": 62255
+            },
+            {
+              "name": "Flamegor",
+              "duration_ms": 55568
+            },
+            {
+              "name": "Chromaggus",
+              "duration_ms": 107099
+            },
+            {
+              "name": "Nefarian",
+              "duration_ms": 117857
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "jnzpdv2N3TPfxFrW",
+      "title": "Omen - ZG + AQ20",
+      "date": "22-01-2026",
+      "started_at": "2026-01-22T19:42:03+00:00",
+      "session_wallclock_ms": 6430154,
+      "zones_wallclock_ms": 4892305,
+      "raid_size": 17,
+      "boss_kills": 13,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Ruins of Ahn'Qiraj",
+          "tier": null,
+          "wallclock_ms": 2716789,
+          "boss_time_ms": 739260,
+          "boss_kills": 6,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 17,
+          "bosses": [
+            {
+              "name": "Kurinnaxx",
+              "duration_ms": 51627
+            },
+            {
+              "name": "General Rajaxx",
+              "duration_ms": 298387
+            },
+            {
+              "name": "Moam",
+              "duration_ms": 47232
+            },
+            {
+              "name": "Ossirian the Unscarred",
+              "duration_ms": 114670
+            },
+            {
+              "name": "Ayamiss the Hunter",
+              "duration_ms": 86023
+            },
+            {
+              "name": "Buru the Gorger",
+              "duration_ms": 141321
+            }
+          ]
+        },
+        {
+          "zone": "Zul'Gurub",
+          "tier": null,
+          "wallclock_ms": 2175516,
+          "boss_time_ms": 456695,
+          "boss_kills": 7,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 16,
+          "bosses": [
+            {
+              "name": "High Priest Venoxis",
+              "duration_ms": 37759
+            },
+            {
+              "name": "Bloodlord Mandokir",
+              "duration_ms": 63604
+            },
+            {
+              "name": "High Priestess Mar'li",
+              "duration_ms": 44527
+            },
+            {
+              "name": "High Priest Thekal",
+              "duration_ms": 70898
+            },
+            {
+              "name": "High Priestess Arlokk",
+              "duration_ms": 93697
+            },
+            {
+              "name": "Jin'do the Hexxer",
+              "duration_ms": 40117
+            },
+            {
+              "name": "Hakkar",
+              "duration_ms": 106093
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "grkNmJFDB284bz6p",
+      "title": "Omen - ZG & AQ",
+      "date": "18-01-2026",
+      "started_at": "2026-01-18T19:32:36+00:00",
+      "session_wallclock_ms": 7883849,
+      "zones_wallclock_ms": 5040748,
+      "raid_size": 20,
+      "boss_kills": 12,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Ruins of Ahn'Qiraj",
+          "tier": null,
+          "wallclock_ms": 2618408,
+          "boss_time_ms": 400848,
+          "boss_kills": 4,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 17,
+          "bosses": [
+            {
+              "name": "Moam",
+              "duration_ms": 44868
+            },
+            {
+              "name": "Ossirian the Unscarred",
+              "duration_ms": 122095
+            },
+            {
+              "name": "Ayamiss the Hunter",
+              "duration_ms": 75781
+            },
+            {
+              "name": "Buru the Gorger",
+              "duration_ms": 158104
+            }
+          ]
+        },
+        {
+          "zone": "Zul'Gurub",
+          "tier": null,
+          "wallclock_ms": 2422340,
+          "boss_time_ms": 407036,
+          "boss_kills": 8,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 20,
+          "bosses": [
+            {
+              "name": "High Priestess Jeklik",
+              "duration_ms": 39875
+            },
+            {
+              "name": "High Priest Venoxis",
+              "duration_ms": 35537
+            },
+            {
+              "name": "High Priestess Mar'li",
+              "duration_ms": 36884
+            },
+            {
+              "name": "Bloodlord Mandokir",
+              "duration_ms": 58213
+            },
+            {
+              "name": "High Priest Thekal",
+              "duration_ms": 81764
+            },
+            {
+              "name": "High Priestess Arlokk",
+              "duration_ms": 25321
+            },
+            {
+              "name": "Jin'do the Hexxer",
+              "duration_ms": 35602
+            },
+            {
+              "name": "Hakkar",
+              "duration_ms": 93840
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
