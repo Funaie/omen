@@ -1,0 +1,12 @@
+# Hemmeligheder — må ALDRIG committes
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
