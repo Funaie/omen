@@ -66,6 +66,19 @@ ca. 15 min. Glemt stop = tallet for højt. Sen start = tallet for lavt.
 Det er en aftale med raidlederne, ikke et kodeproblem — men koden bør markere
 mistænkelige logs frem for stiltiende at regne på dem.
 
+## Sprog — vigtigt, og en undtagelse fra workspacets regler
+
+Omen er en **international guild**. Alt, en besøgende ser, er **engelsk**:
+begge sider, formularens fejlbeskeder, Discord-beskeden fra funktionen.
+
+Kommentarer i koden, commit-beskeder og scriptets konsoloutput er stadig **dansk**
+— de er til Simon, ikke til besøgende.
+
+Det betyder også, at **datoformatet på siden er engelsk** ("21 May", "23 Jul 2026"),
+ikke workspacets DD/MM/ÅÅÅÅ. Det er bevidst: `06-08` læses som 8. juni af
+halvdelen af et internationalt publikum. Workspace-reglen gælder Simons egne
+tekster og filnavne — ikke dette produkts brugerflade. **Lav det ikke om.**
+
 ## Arbejdsform i dette projekt
 
 Simon er uddannet datamatiker, Java-backend-tung, rusten på frontend og har ikke
