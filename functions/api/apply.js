@@ -59,7 +59,7 @@ function clean(value, max) {
     .trim();
 }
 
-export async function onRequestPost({ request, env }) {
+async function handleApply({ request, env }) {
   if (!env.DISCORD_WEBHOOK_URL) {
     // Konfigurationsfejl, ikke brugerfejl — sig det praecist i loggen,
     // men lad vaere med at afsloere opsaetningen for den, der ansoeger.
@@ -130,6 +130,19 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true }, 200);
 }
 
-// Bemaerk: kun onRequestPost eksporteres. Pages svarer selv 405 paa alle
-// andre metoder. Eksporterer man ogsaa en onRequest-catch-all, bliver det
-// tvetydigt hvem der haandterer POST.
+// ÉN eksporteret handler, der selv forgrener paa metoden.
+//
+// Foerste udgave eksporterede kun onRequestPost ud fra en antagelse om, at
+// Pages selv svarede 405 paa alt andet. Det gjorde den ikke: en GET faldt
+// igennem til den statiske haandtering og fik HELE forsiden serveret som
+// HTML med status 200. Et API-endpoint, der svarer med en hjemmeside.
+// Maalt i produktion, ikke gaettet.
+export async function onRequest(context) {
+  if (context.request.method !== "POST") {
+    return new Response("Method Not Allowed", {
+      status: 405,
+      headers: { Allow: "POST", "Content-Type": "text/plain" },
+    });
+  }
+  return handleApply(context);
+}
