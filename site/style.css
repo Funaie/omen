@@ -16,35 +16,26 @@
 
 * { box-sizing: border-box; }
 
+/* Baggrunden SCROLLER MED indholdet — den er ikke laast til viewporten.
+   Det vender bevidst Q13 i brainstormen om ("statisk baggrund der bliver
+   staaende"); Simon vil have den til at foelge med. Derfor ligger stemningen
+   paa body med background-attachment: scroll (standard) i stedet for paa et
+   position:fixed-lag. */
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
   font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
-}
 
-/* BAGGRUNDSKUNST — fastlaast, saa den staar stille naar man scroller.
-   Lige nu en ren CSS-stemning, fordi billedkilden er et aabent flag
-   (officiel Blizzard key art vs. fan art med tilladelse).
-   Naar billedet findes: laeg det i site/art/ og tilfoej det som foerste
-   lag i background nedenfor. Alt andet virker uaendret. */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
   background:
-    radial-gradient(80% 55% at 72% 8%, rgba(150, 90, 190, 0.22), transparent 70%),
-    radial-gradient(60% 45% at 18% 4%, rgba(70, 130, 170, 0.18), transparent 70%),
+    radial-gradient(80% 40% at 72% 0%, rgba(150, 90, 190, 0.20), transparent 72%),
+    radial-gradient(60% 34% at 18% 0%, rgba(70, 130, 170, 0.16), transparent 72%),
     var(--bg);
-}
-/* Sloeret der sikrer kontrast: kunsten ses i kanterne, aldrig bag et tal.
-   Den moerkner nedad, saa data overtager efter hero'en. */
-.backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(13,12,11,0.35) 0%, rgba(13,12,11,0.88) 55%, var(--bg) 100%);
+  /* Uden no-repeat gentages gradienterne ned gennem hele dokumentet. De skal
+     kun ligge i toppen og scrolle vaek sammen med hero'en. */
+  background-size: 100% 130vh, 100% 130vh, auto;
+  background-repeat: no-repeat;
+  background-color: var(--bg);
 }
 
 .shell { width: var(--shell); margin-inline: auto; }

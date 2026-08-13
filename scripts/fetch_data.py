@@ -348,20 +348,6 @@ def summarise_tier(nights: list[dict], tier_zones: list[str]) -> dict | None:
         "median_wallclock_ms": median,
         "median_display": format_duration(median),
         "best_display": format_duration(min(wallclocks)),
-        # Hvor lang tid gik der fra første clear til den hurtigste? Det er
-        # laeringskurven, sat i uger.
-        "weeks_to_best": max(
-            0,
-            (
-                datetime.fromisoformat(
-                    min(qualified, key=lambda n: n["session_wallclock_ms"])["started_at"]
-                )
-                - datetime.fromisoformat(
-                    min(qualified, key=lambda n: n["started_at"])["started_at"]
-                )
-            ).days
-            // 7,
-        ),
     }
 
 

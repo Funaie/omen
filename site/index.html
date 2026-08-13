@@ -258,7 +258,6 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 </style>
 </head>
 <body>
-<div class="backdrop"></div>
 
 <div class="shell">
 
@@ -268,8 +267,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
     <h1 class="masthead">Omen</h1>
     <p class="tagline">
       <span>EU · Spineshatter</span><span class="dot"></span>
-      <span>Horde</span><span class="dot"></span>
-      <span>Semi-hardcore</span>
+      <span>Horde</span>
     </p>
 
     <p class="question">Can they clear it all in under 3 hours?</p>
@@ -284,7 +282,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 
     <dl class="facts">
       <div class="fact"><dt>Progress</dt><dd id="prog">—</dd></div>
-      <div class="fact"><dt>Raid times</dt><dd>Thu 20:30–23:30<small>+ optional Sunday</small></dd></div>
+      <div class="fact"><dt>Raid times</dt><dd>Thu &amp; Sun<small>20:30–23:30 server time</small></dd></div>
       <div class="fact"><dt>Fastest</dt><dd id="best">—<small>the record, not the norm</small></dd></div>
       <div class="fact"><dt>Loot</dt><dd>Loot Council<small>RCLootCouncil</small></dd></div>
     </dl>
@@ -293,17 +291,13 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
   <section>
     <h2>Every raid night, not just the good ones</h2>
     <p class="lede">
-      One bar per night: first pull to last boss down, trash and wipes included.
-      The dashed line is the 3 hours the raid is advertised as.
+      One bar per full clear: first pull to last boss down, trash and wipes
+      included. The dashed line is the 3 hours the raid is advertised as.
     </p>
     <div class="bars-wrap">
       <div class="bars" id="bars"><p class="loading">loading…</p></div>
     </div>
-    <div class="legend">
-      <span><i style="background:rgba(200,164,92,0.75)"></i>Full clear, 24–25 raiders</span>
-      <span><i style="background:rgba(140,150,175,0.6)"></i>Under 24 raiders</span>
-      <span><i style="background:rgba(192,122,74,0.6)"></i>Incomplete — excluded from the median</span>
-    </div>
+    <div class="legend" id="legend"></div>
   </section>
 
   <section>
@@ -314,7 +308,7 @@ header { position: relative; padding: clamp(2.5rem, 7vh, 4.5rem) 0 3.5rem; }
 
   <section>
     <h2>Previous tier</h2>
-    <p class="lede">The curve is the point. The same curve is waiting for T6.</p>
+    <p class="lede">What a tier looks like once it is on farm. T5 is heading the same way.</p>
     <p class="previous" id="previous">—</p>
   </section>
 
@@ -366,10 +360,20 @@ const NEEDS = [
 const THREE_HOURS_MS = 3 * 60 * 60 * 1000;
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
+// Til hele raidaftener: sekunder er stoej paa et tal i timer.
 const fmt = (ms) => {
   const total = Math.round(ms / 60000);
   const h = Math.floor(total / 60), m = total % 60;
   return h ? `${h}h${String(m).padStart(2, "0")}` : `${m} min`;
+};
+
+// Til bosskampe: sekunder er tvaertimod hele pointen. "2 min" kan daekke over
+// baade 2:01 og 2:59, og det er to vidt forskellige kampe.
+const fmtKill = (ms) => {
+  const total = Math.round(ms / 1000);
+  const m = Math.floor(total / 60), sec = String(total % 60).padStart(2, "0");
+  if (m < 60) return `${m}:${sec}`;
+  return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}:${sec}`;
 };
 
 // Datoer skrives med maanedsnavn. "06-08" er tvetydigt for et internationalt
@@ -417,9 +421,12 @@ function render(data) {
     `${s.best_display}<small>the record, not the norm</small>`;
 
   // ---- CONSISTENCY BARS ----
-  // Kun aftener i den nuvaerende tier — Karazhan-aftener hoerer ikke til her.
+  // KUN fulde, sammenhaengende clears. En aften hvor de kun tog SSC, eller
+  // hvor Al'ar manglede, er hurtig af den forkerte grund — den hoerer ikke
+  // hjemme i en graf om "hvor lang tid tager en clear". Det er samme
+  // kvalifikation som medianen bruger, saa grafen og hovedtallet er enige.
   const nights = data.raids
-    .filter((r) => r.zones.some((z) => z.tier === s.tier))
+    .filter((r) => r.full_tier_clear)
     .slice(0, 12)
     .reverse();
 
@@ -432,20 +439,9 @@ function render(data) {
     const row = document.createElement("div");
     row.className = "bar-row" + (night.raid_size < 24 ? " small" : "");
 
-    // En bar kan vaere markeret af to grunde, og etiketten skal sige hvilken:
-    // enten mangler der kills i en zone, eller ogsaa blev zonen slet ikke besoegt.
-    const short = (name) => name.replace("Serpentshrine Cavern", "SSC");
-    const incomplete = night.zones.filter((z) => !z.complete);
-    const untouched = s.tier_zones.filter((name) => !night.zones.some((z) => z.zone === name));
-
-    let label;
-    if (incomplete.length) {
-      label = incomplete.map((z) => `${short(z.zone)} ${z.boss_kills}/${z.boss_count_expected}`).join(", ");
-    } else if (untouched.length) {
-      label = `${night.zones.map((z) => short(z.zone)).join(" + ")} only`;
-    } else {
-      label = `${night.raid_size} raiders`;
-    }
+    // Alle barer er nu fulde clears, saa etiketten har kun én opgave tilbage:
+    // vise bemandingen. Regel 3 — en tid staar aldrig alene.
+    const label = `${night.raid_size} raiders`;
 
     // Under ~30% er baren for kort til at rumme sit eget tal.
     const pct = (night.session_wallclock_ms / scale) * 100;
@@ -462,9 +458,22 @@ function render(data) {
           ${fmt(night.session_wallclock_ms)}
         </span>
       </div>
-      <span class="bar-meta" title="${night.raid_size} raiders">${label}</span>`;
+      <span class="bar-meta">${label}</span>`;
     bars.appendChild(row);
   });
+
+  // Forklaringen bygges af det, der FAKTISK staar i grafen. En fast liste
+  // ville vise en farve, ingen bar har — og saa leder man efter den.
+  const legend = [];
+  if (nights.some((n) => n.raid_size >= 24)) {
+    legend.push(["rgba(200,164,92,0.75)", "Full clear, 24–25 raiders"]);
+  }
+  if (nights.some((n) => n.raid_size < 24)) {
+    legend.push(["rgba(140,150,175,0.6)", "Full clear, under 24 raiders"]);
+  }
+  document.getElementById("legend").innerHTML = legend
+    .map(([colour, text]) => `<span><i style="background:${colour}"></i>${text}</span>`)
+    .join("");
 
   // Sporet starter efter dato-kolonnen + gap, og slutter foer meta-kolonnen +
   // gap. Samme tal som grid'et, laest fra CSS'en frem for skrevet af igen.
@@ -497,7 +506,7 @@ function render(data) {
       </div>
       ${zone ? `<details>
         <summary>Kill times</summary>
-        <ul>${zone.bosses.map((b) => `<li><span>${b.name}</span><span>${fmt(b.duration_ms)}</span></li>`).join("")}</ul>
+        <ul>${zone.bosses.map((b) => `<li><span>${b.name}</span><span>${fmtKill(b.duration_ms)}</span></li>`).join("")}</ul>
       </details>` : ""}`;
     cards.appendChild(card);
   });
@@ -506,8 +515,7 @@ function render(data) {
   const prev = data.previous_tier;
   document.getElementById("previous").innerHTML = prev.median_display
     ? `<b>${prev.zones.join(", ")}</b> — ${prev.clear_count} clears, median
-       <b>${prev.median_display}</b>, fastest <b>${prev.best_display}</b>.
-       It took <b>${prev.weeks_to_best} weeks</b> to go from the first clear to the fastest one.`
+       <b>${prev.median_display}</b>, fastest <b>${prev.best_display}</b>.`
     : "No full clears recorded for the previous tier.";
 
   // ---- FOOTER ----
