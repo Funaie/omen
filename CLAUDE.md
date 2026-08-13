@@ -15,8 +15,11 @@ Alt andet er understøttende. Rank er afvist som støj.
 
 ## De fem regler, alt andet følger af
 
-1. **Hovedtallet er vægur-clear-tid** — første pull i zonen → sidste boss død,
-   inkl. trash og wipes. Ikke sum af bosskampe, ikke rekord-pull.
+1. **Hovedtallet er vægur-clear-tid for hele aftenen** — første pull *overhovedet*
+   → sidste boss død *overhovedet*, inkl. trash, wipes og tiden mellem zonerne.
+   Ikke sum af bosskampe, ikke sum af zone-segmenter, ikke rekord-pull.
+   Zone-summen findes stadig i data (`zones_wallclock_ms`), men den er ~20 min
+   for lav, fordi summons og flyveture falder ud — og det er rigtig raidtid.
 2. **Median, aldrig rekord.** Rekord må stå som en lille sidelinje. Simons ord om
    at hero'e rekorden: *"bondefangeri"*. Siden må ikke kunne overselges.
 3. **Raid-størrelse står altid ved siden af en tid.** "2t58 · 21 mand" forklarer
@@ -51,6 +54,9 @@ grunden til, at "simpelt" og "live data" kan være sandt på samme tid.
 - WCL regner allerede zone-segmentet ud (`1:12:35`-tallet), men lægger aldrig
   zonerne sammen. **Sammenlægningen er sidets opfindelse** — den sker i
   `analyse_report()` i `scripts/fetch_data.py`.
+- **Samme raid logges tit af flere raidere.** 66 reports viste sig at være 32
+  aftener. Uden `deduplicate_nights()` tælles en aften dobbelt i medianen.
+- Zonen hedder **"The Eye"** i API'et, ikke "Tempest Keep".
 
 ## Kendt datarisiko
 

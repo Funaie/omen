@@ -16,54 +16,8 @@
 <meta property="og:url" content="https://omen.pages.dev/">
 <meta name="theme-color" content="#0d0c0b">
 
+<link rel="stylesheet" href="style.css">
 <style>
-:root {
-  --bg: #0d0c0b;
-  --panel: rgba(28, 25, 21, 0.72);
-  --line: rgba(200, 164, 92, 0.18);
-  --text: #ece3d2;
-  --muted: #9a8f7d;
-  --gold: #c8a45c;
-  --good: #6fa86f;
-  --warn: #c07a4a;
-  --shell: min(1120px, 100% - 2.5rem);
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* BAGGRUNDSKUNST — fastlaast, saa den staar stille naar man scroller.
-   Lige nu en ren CSS-stemning, fordi billedkilden er et aabent flag
-   (officiel Blizzard key art vs. fan art med tilladelse).
-   Naar billedet findes: laeg det i site/art/ og saet --art nedenfor.
-   Alt andet virker uaendret. */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(80% 55% at 72% 8%, rgba(150, 90, 190, 0.22), transparent 70%),
-    radial-gradient(60% 45% at 18% 4%, rgba(70, 130, 170, 0.18), transparent 70%),
-    var(--bg);
-}
-/* Sloeret der sikrer kontrast: kunsten ses i kanterne, aldrig bag et tal.
-   Den moerkner nedad, saa data overtager efter hero'en. */
-.backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(13,12,11,0.35) 0%, rgba(13,12,11,0.88) 55%, var(--bg) 100%);
-}
-
-.shell { width: var(--shell); margin-inline: auto; }
-
 /* ---------- HERO ---------- */
 header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 
@@ -131,11 +85,6 @@ header { padding: clamp(3rem, 9vh, 6rem) 0 3.5rem; }
 .fact dt { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .fact dd { margin: 0.35rem 0 0; font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .fact dd small { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
-
-/* ---------- SEKTIONER ---------- */
-section { padding: 3.25rem 0; border-top: 1px solid var(--line); }
-h2 { margin: 0 0 0.4rem; font-size: 1.35rem; letter-spacing: -0.01em; }
-.lede { margin: 0 0 2rem; color: var(--muted); max-width: 60ch; }
 
 /* ---------- KONSISTENSSTRIBE ---------- */
 .bars {
@@ -245,24 +194,6 @@ h2 { margin: 0 0 0.4rem; font-size: 1.35rem; letter-spacing: -0.01em; }
   font-size: 0.85rem;
 }
 .need.hot { border-color: rgba(200,164,92,0.6); color: var(--gold); }
-.btn {
-  display: block;
-  text-align: center;
-  background: var(--gold);
-  color: #17140f;
-  font-weight: 700;
-  font-size: 1.05rem;
-  padding: 0.95rem 1.5rem;
-  border: 0;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn:hover { filter: brightness(1.08); }
-
-footer { padding: 2.5rem 0 4rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
-footer a { color: var(--muted); }
-
 /* Sticky apply — foelger med ned, saa knappen ikke bliver overset.
    Skjules naar den rigtige apply-sektion er i syne (styres i JS). */
 .sticky {
@@ -274,8 +205,9 @@ footer a { color: var(--muted); }
   transition: opacity 0.25s, transform 0.25s;
 }
 .sticky[hidden] { display: block; opacity: 0; transform: translateY(0.75rem); pointer-events: none; }
-
-.loading { color: var(--muted); }
+/* .btn er fuld bredde som standard (formularen vil have det saadan) — den
+   flydende knap skal kun fylde sin egen tekst. */
+.sticky { width: auto; }
 </style>
 </head>
 <body>
