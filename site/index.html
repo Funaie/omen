@@ -583,6 +583,11 @@ function render(data) {
   const cards = document.getElementById("cards");
   cards.innerHTML = "";
 
+  // Kill-tiderne staar aabne fra start (<details open>). Det er tal, folk
+  // kommer for — at gemme dem bag et klik ville vaere at skjule pointen.
+  // Naar T5 en dag bliver old content, kan "open" fjernes, saa de foldes
+  // sammen ligesom alt andet arkiv.
+  //
   // Hvert kort laeser SIN EGEN zone, ikke aftenen som helhed. Ellers ville en
   // aften hvor fx Al'ar manglede diskvalificere HELE aftenen, og SSC-kortet
   // ville vise en aeldre og langsommere tid, selvom SSC faldt helt den aften.
@@ -603,7 +608,7 @@ function render(data) {
         <small>latest full clear · ${night ? longDate(night.started_at) : ""}
           ${zone ? `· ${zone.raid_size} raiders` : ""}</small>
       </div>
-      ${zone ? `<details>
+      ${zone ? `<details open>
         <summary>Kill times</summary>
         <ul>${zone.bosses.map((b) => `<li><span>${b.name}</span><span>${fmtKill(b.duration_ms)}</span></li>`).join("")}</ul>
       </details>` : ""}`;
