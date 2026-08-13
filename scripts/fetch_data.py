@@ -34,6 +34,23 @@ from wcl import WCLClient, WCLError
 
 GUILD_ID = 809023  # Omen, EU-Spineshatter, på fresh.warcraftlogs.com
 
+# Logs, der IKKE er registreret på guilden, men er rigtige Omen-raids.
+# Sker når en raider uploader fra sin egen konto uden at sætte guild på
+# rapporten — så findes den ikke via reports(guildID:), uanset at raidet
+# var det samme.
+#
+# REGLEN, og den er ikke til forhandling: her tilføjes kun **hele aftener,
+# guilden faktisk raidede**. Aldrig for at vælge den pæneste af flere logs
+# af samme aften — det klarer deduplicate_nights() efter faste kriterier.
+# Hver kode er en påstand om, at raidet fandt sted; den står i git og kan
+# efterprøves af enhver på fresh.warcraftlogs.com/reports/<kode>.
+#
+# Den rigtige løsning er at få raideren til at sætte guild på rapporten på
+# WarcraftLogs. Så forsvinder behovet for linjen her.
+EXTRA_REPORT_CODES = [
+    "DALQ1RCdtj738Gw6",  # 13-08-2026 — guild-loggen stoppede midt i SSC
+]
+
 # Hvor data.json lander. Siden læser den herfra.
 OUTPUT_PATH = pathlib.Path(__file__).parent.parent / "site" / "data.json"
 
@@ -119,7 +136,12 @@ query ReportFights($code: String!) {
 
 
 def fetch_reports(client: WCLClient, max_pages: int = 4) -> list[dict]:
-    """Alle guildens reports, nyeste først."""
+    """Guildens reports plus de manuelt tilføjede, nyeste først.
+
+    Koderne i EXTRA_REPORT_CODES tilføjes kun, hvis de ikke allerede kom med
+    fra guilden — bliver en rapport senere knyttet til guilden på WCL, skal
+    den ikke tælles to gange.
+    """
     reports: list[dict] = []
     page = 1
     while page <= max_pages:
@@ -129,6 +151,15 @@ def fetch_reports(client: WCLClient, max_pages: int = 4) -> list[dict]:
         if not block["has_more_pages"]:
             break
         page += 1
+
+    kendte = {r["code"] for r in reports}
+    for code in EXTRA_REPORT_CODES:
+        if code in kendte:
+            print(f"  {code} er nu paa guilden — fjern den fra EXTRA_REPORT_CODES")
+            continue
+        reports.append({"code": code})
+        print(f"  + manuelt tilfoejet log: {code}")
+
     return reports
 
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T21:37:18+00:00",
+  "generated_at": "2026-08-13T21:46:04+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,17 +12,17 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 4,
+    "nights_in_window": 5,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10639526,
-    "median_display": "2h57",
+    "median_wallclock_ms": 10566370,
+    "median_display": "2h56",
     "best_wallclock_ms": 9271532,
     "best_display": "2h35",
-    "report_count": 67,
+    "report_count": 68,
     "night_count": 33,
-    "full_clear_count": 8,
-    "days_since_last_full_clear": 21
+    "full_clear_count": 9,
+    "days_since_last_full_clear": 0
   },
   "progression": {
     "zones": {
@@ -72,6 +72,7 @@
     "best_display": "1h20"
   },
   "window": [
+    "DALQ1RCdtj738Gw6",
     "2yp3JHDGZxA7f8MQ",
     "KrH4FZRnvtM9fxB1",
     "t8bmZ3G4Yy2XKfPh",
@@ -79,22 +80,22 @@
   ],
   "raids": [
     {
-      "code": "pQA1DVMBP8khncKL",
-      "title": "weird raid inc",
+      "code": "DALQ1RCdtj738Gw6",
+      "title": "ddaaaaa",
       "date": "13-08-2026",
-      "started_at": "2026-08-13T19:19:51+00:00",
-      "session_wallclock_ms": 7790295,
-      "zones_wallclock_ms": 6192578,
+      "started_at": "2026-08-13T18:30:22+00:00",
+      "session_wallclock_ms": 10364005,
+      "zones_wallclock_ms": 9080850,
       "raid_size": 25,
-      "boss_kills": 9,
-      "complete": false,
-      "full_tier_clear": false,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
       "zones": [
         {
           "zone": "The Eye",
           "tier": "T5",
-          "wallclock_ms": 4295171,
-          "boss_time_ms": 911964,
+          "wallclock_ms": 4295083,
+          "boss_time_ms": 911869,
           "boss_kills": 4,
           "boss_count_expected": 4,
           "complete": true,
@@ -102,51 +103,63 @@
           "bosses": [
             {
               "name": "Al'ar",
-              "duration_ms": 302261
+              "duration_ms": 302191
             },
             {
               "name": "High Astromancer Solarian",
-              "duration_ms": 66400
+              "duration_ms": 66357
             },
             {
               "name": "Void Reaver",
-              "duration_ms": 137321
+              "duration_ms": 137258
             },
             {
               "name": "Kael'thas Sunstrider",
-              "duration_ms": 405982
+              "duration_ms": 406063
             }
           ]
         },
         {
           "zone": "Serpentshrine Cavern",
           "tier": "T5",
-          "wallclock_ms": 1339245,
-          "boss_time_ms": 615963,
-          "boss_kills": 3,
+          "wallclock_ms": 3913225,
+          "boss_time_ms": 1000383,
+          "boss_kills": 6,
           "boss_count_expected": 6,
-          "complete": false,
+          "complete": true,
           "raid_size": 25,
           "bosses": [
             {
+              "name": "Hydross the Unstable",
+              "duration_ms": 85545
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 135043
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 163995
+            },
+            {
               "name": "Fathom-Lord Karathress",
-              "duration_ms": 103261
+              "duration_ms": 103316
             },
             {
               "name": "Leotheras the Blind",
-              "duration_ms": 131147
+              "duration_ms": 131028
             },
             {
               "name": "Lady Vashj",
-              "duration_ms": 381555
+              "duration_ms": 381456
             }
           ]
         },
         {
           "zone": "Gruul's Lair",
           "tier": "T4",
-          "wallclock_ms": 558162,
-          "boss_time_ms": 188565,
+          "wallclock_ms": 872542,
+          "boss_time_ms": 188480,
           "boss_kills": 2,
           "boss_count_expected": 2,
           "complete": true,
@@ -154,11 +167,11 @@
           "bosses": [
             {
               "name": "High King Maulgar",
-              "duration_ms": 43013
+              "duration_ms": 42974
             },
             {
               "name": "Gruul the Dragonkiller",
-              "duration_ms": 145552
+              "duration_ms": 145506
             }
           ]
         }
