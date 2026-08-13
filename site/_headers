@@ -1,0 +1,25 @@
+# Cloudflare Pages laeser denne fil fra build-output (site/).
+# Formatet er sti, derefter headers med to mellemrums indryk.
+
+# Tallene skal ALDRIG serveres fra cache uden at blive tjekket. Uden det her
+# kan cron-jobbet hente nye tider fredag morgen, mens besoegende stadig ser
+# mandagens — og siden ser rigtig ud imens, saa ingen opdager det.
+/data.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Kunsten er tung (ca. 250 KB pr. billede) og skifter sjaeldent. Ét doegn er
+# en bevidst afvejning: "immutable" ville vaere hurtigere, men saa ville et
+# nyt billede med samme filnavn tage op til et aar om at naa ud til folk,
+# der har vaeret paa siden foer. Ved Phase 3 skiftes kunsten.
+/art/*
+  Cache-Control: public, max-age=86400
+
+/style.css
+  Cache-Control: public, max-age=3600
+
+# Siden serverer ingen brugerdata og skal ikke kunne laegges i en iframe af
+# andre — et guild-site er et oplagt sted at forsoege at efterligne.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
