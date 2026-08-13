@@ -458,8 +458,10 @@ function render(data) {
     .map((n) => String(n).padStart(2, "0"))
     .join("/") + "/" + g.getFullYear();
 
+  // "senest aendret", ikke "opdateret": filen skrives kun, naar tallene har
+  // flyttet sig, saa datoen er den sidste aendring — ikke sidste tjek.
   document.getElementById("freshness").textContent =
-    `Opdateret ${dk} · ` +
+    `Tallene senest ændret ${dk} · ` +
     `${s.report_count} logs → ${s.night_count} raidaftener → ${s.full_clear_count} fulde ${s.tier}-clears · ` +
     `seneste fulde clear for ${s.days_since_last_full_clear} dage siden`;
 

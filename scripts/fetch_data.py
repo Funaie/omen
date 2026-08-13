@@ -415,6 +415,20 @@ def build_dataset(raids: list[dict]) -> dict:
     }
 
 
+def unchanged(dataset: dict, path: pathlib.Path) -> bool:
+    """Er alt bortset fra tidsstemplet det samme som i filen paa disken?"""
+    if not path.exists():
+        return False
+    try:
+        existing = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return False  # ulaeselig fil skal skrives om, ikke bevares
+
+    return {k: v for k, v in existing.items() if k != "generated_at"} == {
+        k: v for k, v in dataset.items() if k != "generated_at"
+    }
+
+
 def main() -> int:
     # Windows-terminaler er cp1252 som standard, og så knækker "·" og "æøå".
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -466,6 +480,15 @@ def main() -> int:
 
         dataset = build_dataset(raids)
         OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+        # generated_at aendrer sig ved HVER koersel. Skrev vi ubetinget, ville
+        # cron-jobbet lave en commit hver fredag, ogsaa i uger hvor intet er
+        # sket — og saa druknede de rigtige aendringer i stoej. Derfor
+        # sammenlignes alt UNDTAGEN tidsstemplet.
+        if unchanged(dataset, OUTPUT_PATH):
+            print("\nTallene er uaendrede — data.json roeres ikke.")
+            return 0
+
         OUTPUT_PATH.write_text(
             json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8"
         )
