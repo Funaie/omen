@@ -96,7 +96,10 @@ header {
 
 .masthead {
   margin: 0;
-  font-size: clamp(3.75rem, 12.5vw, 10.75rem);
+  /* Maksimum sat af Simon i design-canvas'et: 130px = 8.125rem.
+     Mellemleddet betyder, at navnet vokser med vinduet indtil ca.
+     1040px bredde og derefter staar stille. */
+  font-size: clamp(3.75rem, 12.5vw, 8.125rem);
   line-height: 0.82;
   font-weight: 900;
   font-variation-settings: "wdth" 116;
