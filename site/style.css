@@ -1,6 +1,33 @@
 /* Faelles fundament for alle sider: farver, typografi, baggrund og knap.
    Sidespecifik CSS bliver i den enkelte side — kun det, to sider deler,
-   hoerer hjemme her. */
+   hoerer hjemme her.
+
+   BEMAERK: apply.html bygger paa den her fil. Aendrer du .btn, .shell eller
+   variabelnavnene, saa aabn apply.html og se efter — den har ingen egen
+   definition af dem. */
+
+/* Fonten ligger i repoet og serveres fra vores eget domaene. Det er et
+   bevidst valg frem for Google Fonts: siden er ellers en fil og et cron-job
+   og kan derfor ikke gaa ned — et opkald ud af huset ville vaere den eneste
+   ting udenfor vores kontrol. Oveni slipper besoegendes IP-adresse ikke ud
+   til tredjepart, og fonten faar vores egne cache-regler i _headers.
+
+   Filen er trimmet med fontTools: bredde-aksen gik oprindeligt 62-125% og
+   vaegten 100-900. Siden bruger bredde 100-116 og vaegt 400-900, saa resten
+   er skaaret vaek — 88 KB blev til 59 KB. Skal du bruge en tyndere vaegt
+   end 400 eller en smallere bredde end 100, skal filen hentes igen.
+
+   Archivo, SIL Open Font License 1.1 — se fonts/OFL.txt. */
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-var.woff2") format("woff2-variations");
+  font-weight: 400 900;
+  font-stretch: 100% 125%;
+  font-style: normal;
+  /* swap: teksten vises med systemfonten med det samme og skifter, naar
+     filen er hentet. Siden venter aldrig paa en skrifttype. */
+  font-display: swap;
+}
 
 :root {
   --bg: #0d0c0b;
@@ -9,9 +36,16 @@
   --text: #ece3d2;
   --muted: #9a8f7d;
   --gold: #c8a45c;
+  /* Lysere guld til det ene tal, der skal skille sig ud fra de andre. */
+  --gold-bright: #e6c680;
+  /* Illidans farve. Gloeden i hans oejne og glaives er groenblaa, ikke guld —
+     den bruges KUN til stemning i hero'en, aldrig til et tal. */
+  --fel: #57d6c4;
   --good: #6fa86f;
   --warn: #c07a4a;
   --shell: min(1120px, 100% - 2.5rem);
+
+  --font: "Archivo", "Helvetica Neue", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -24,12 +58,12 @@
 body {
   margin: 0;
   color: var(--text);
-  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  font: 16px/1.6 var(--font);
   -webkit-font-smoothing: antialiased;
 
   background:
-    radial-gradient(80% 40% at 72% 0%, rgba(150, 90, 190, 0.20), transparent 72%),
-    radial-gradient(60% 34% at 18% 0%, rgba(70, 130, 170, 0.16), transparent 72%),
+    radial-gradient(70% 34% at 74% 0%, rgba(150, 90, 190, 0.18), transparent 70%),
+    radial-gradient(56% 30% at 16% 4%, rgba(70, 130, 170, 0.15), transparent 72%),
     var(--bg);
   /* Uden no-repeat gentages gradienterne ned gennem hele dokumentet. De skal
      kun ligge i toppen og scrolle vaek sammen med hero'en. */
@@ -40,10 +74,17 @@ body {
 
 .shell { width: var(--shell); margin-inline: auto; }
 
-section { padding: 3.25rem 0; border-top: 1px solid var(--line); }
-h2 { margin: 0 0 0.4rem; font-size: 1.35rem; letter-spacing: -0.01em; }
-.lede { margin: 0 0 2rem; color: var(--muted); max-width: 60ch; }
+h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.lede { margin: 0.75rem 0 0; color: var(--muted); max-width: 62ch; }
 
+/* .btn er FULD BREDDE, fordi apply.html's submit-knap regner med det.
+   Lav ikke standarden om — laeg en modifier ovenpaa, hvis en knap et sted
+   kun skal fylde sin egen tekst. */
 .btn {
   display: block;
   width: 100%;
@@ -55,14 +96,27 @@ h2 { margin: 0 0 0.4rem; font-size: 1.35rem; letter-spacing: -0.01em; }
   font-size: 1.05rem;
   padding: 0.95rem 1.5rem;
   border: 0;
-  border-radius: 8px;
+  border-radius: 9px;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: filter 0.15s, transform 0.15s;
 }
 .btn:hover:not(:disabled) { filter: brightness(1.08); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
 .btn:disabled { opacity: 0.55; cursor: progress; }
 
-footer { padding: 2.5rem 0 4rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
+footer { padding: 2.25rem 0 3.5rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
 footer a { color: var(--muted); }
 
 .loading { color: var(--muted); }
+
+/* Respekter at nogen har slaaet bevaegelse fra i styresystemet. Stemning er
+   aldrig vigtigere end at kunne holde ud at se paa siden. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
