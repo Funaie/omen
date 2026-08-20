@@ -18,12 +18,11 @@
 <meta property="og:image" content="https://omenguild.com/art/t6-illidan.webp">
 <meta name="theme-color" content="#0d0c0b">
 
-<!-- Archivo har en bredde-akse (wdth). Den bruges til mastheaded og
-     hovedtallet. display=swap: siden renderer med systemfonten med det
-     samme og skifter, naar filen er hentet — den venter aldrig. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<!-- Fonten ligger hos os selv, ikke hos Google — se noten i style.css.
+     preload, fordi @font-face staar inde i style.css: uden den her linje
+     opdager browseren foerst fonten, naar CSS'en er hentet og parset, og
+     saa naar man at se systemfonten skifte. -->
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="style.css">
 <style>
@@ -127,14 +126,6 @@ header {
 .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
 .live { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); }
 .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--good); animation: pulse 2.6s ease-out infinite; }
-
-/* Broadcast'en har sin knap oppe i hjoernet fra foerste skaerm. */
-.hero-cta {
-  position: absolute;
-  top: clamp(1rem, 4vh, 2.75rem);
-  right: 0;
-  animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s both;
-}
 
 /* ---------- BUDGET ---------- */
 .budget { position: relative; margin-top: clamp(-3rem, -4vh, -2rem); padding-bottom: 0.5rem; }
@@ -382,21 +373,6 @@ header {
 .need { border: 1px solid rgba(200,164,92,0.2); border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.85rem; color: var(--muted); }
 .need.hot { border-color: rgba(200,164,92,0.65); color: var(--gold); }
 
-/* Sticky apply — foelger med ned, saa knappen ikke bliver overset. Skjules
-   baade naar hero'en (der har sin egen knap) og naar den rigtige
-   apply-sektion er i syne; ellers staar der to knapper og konkurrerer. */
-.sticky {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 5;
-  width: auto;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  transition: opacity 0.25s, transform 0.25s;
-}
-.sticky[hidden] { display: block; opacity: 0; transform: translateY(0.75rem); pointer-events: none; }
-
 /* ---------- MOTION ---------- */
 @keyframes drift { from { transform: scale(1.08) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(-18px,-10px,0); } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
@@ -458,7 +434,6 @@ header {
   </div>
 
   <div class="shell hero-inner">
-    <a class="btn btn-inline hero-cta" href="apply.html">Apply</a>
     <h1 class="masthead">Omen</h1>
     <p class="tagline">
       <span>EU · Spineshatter</span><span class="dot"></span>
@@ -533,7 +508,7 @@ header {
 
 </div>
 
-<section class="apply-section" id="apply">
+<section class="apply-section">
   <div class="apply-art" role="img" aria-label="Kael'thas, Illidan and Lady Vashj"></div>
   <div class="shell">
     <div class="apply">
@@ -573,8 +548,6 @@ header {
     </p>
   </footer>
 </div>
-
-<a class="btn sticky" id="sticky" href="apply.html" hidden>Apply</a>
 
 <script>
 // RECRUITMENT NEEDS — the only thing on this page maintained by hand.
@@ -852,24 +825,6 @@ function render(data) {
     (n) => `<span class="need${n.hot ? " hot" : ""}">${n.role}</span>`
   ).join("");
 }
-
-// Sticky-knappen skal kun vaere fremme i det omraade, hvor der IKKE allerede
-// staar en Apply-knap: ikke i hero'en, der har sin egen, og ikke nede ved
-// selve ansoegningsboksen.
-const sticky = document.getElementById("sticky");
-let heroVisible = true;
-let applyVisible = false;
-const syncSticky = () => { sticky.hidden = heroVisible || applyVisible; };
-
-new IntersectionObserver(([entry]) => {
-  heroVisible = entry.isIntersecting;
-  syncSticky();
-}, { threshold: 0.2 }).observe(document.querySelector("header"));
-
-new IntersectionObserver(([entry]) => {
-  applyVisible = entry.isIntersecting;
-  syncSticky();
-}, { threshold: 0.25 }).observe(document.querySelector(".apply"));
 </script>
 </body>
 </html>

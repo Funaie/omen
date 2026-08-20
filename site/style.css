@@ -6,6 +6,29 @@
    variabelnavnene, saa aabn apply.html og se efter — den har ingen egen
    definition af dem. */
 
+/* Fonten ligger i repoet og serveres fra vores eget domaene. Det er et
+   bevidst valg frem for Google Fonts: siden er ellers en fil og et cron-job
+   og kan derfor ikke gaa ned — et opkald ud af huset ville vaere den eneste
+   ting udenfor vores kontrol. Oveni slipper besoegendes IP-adresse ikke ud
+   til tredjepart, og fonten faar vores egne cache-regler i _headers.
+
+   Filen er trimmet med fontTools: bredde-aksen gik oprindeligt 62-125% og
+   vaegten 100-900. Siden bruger bredde 100-116 og vaegt 400-900, saa resten
+   er skaaret vaek — 88 KB blev til 59 KB. Skal du bruge en tyndere vaegt
+   end 400 eller en smallere bredde end 100, skal filen hentes igen.
+
+   Archivo, SIL Open Font License 1.1 — se fonts/OFL.txt. */
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-var.woff2") format("woff2-variations");
+  font-weight: 400 900;
+  font-stretch: 100% 125%;
+  font-style: normal;
+  /* swap: teksten vises med systemfonten med det samme og skifter, naar
+     filen er hentet. Siden venter aldrig paa en skrifttype. */
+  font-display: swap;
+}
+
 :root {
   --bg: #0d0c0b;
   --panel: rgba(28, 25, 21, 0.72);
@@ -59,9 +82,9 @@ h2 {
 }
 .lede { margin: 0.75rem 0 0; color: var(--muted); max-width: 62ch; }
 
-/* .btn er FULD BREDDE som udgangspunkt, fordi apply.html's submit-knap
-   regner med det. Skal den kun fylde sin egen tekst, saa laeg .btn-inline
-   ovenpaa — lav ikke standarden om. */
+/* .btn er FULD BREDDE, fordi apply.html's submit-knap regner med det.
+   Lav ikke standarden om — laeg en modifier ovenpaa, hvis en knap et sted
+   kun skal fylde sin egen tekst. */
 .btn {
   display: block;
   width: 100%;
@@ -82,8 +105,6 @@ h2 {
 .btn:hover:not(:disabled) { filter: brightness(1.08); }
 .btn:active:not(:disabled) { transform: translateY(1px); }
 .btn:disabled { opacity: 0.55; cursor: progress; }
-
-.btn-inline { display: inline-block; width: auto; font-size: 0.95rem; padding: 0.8rem 1.6rem; }
 
 footer { padding: 2.25rem 0 3.5rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
 footer a { color: var(--muted); }

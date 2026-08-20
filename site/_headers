@@ -17,6 +17,12 @@
 /style.css
   Cache-Control: public, max-age=3600
 
+# Fonten skifter endnu sjaeldnere end kunsten, saa den maa gerne ligge laenge.
+# Men samme forbehold som ovenfor: "immutable" ville binde os til filnavnet i
+# et aar, hvis fonten skal trimmes om. En maaned er afvejningen.
+/fonts/*
+  Cache-Control: public, max-age=2592000
+
 # Siden serverer ingen brugerdata og skal ikke kunne laegges i en iframe af
 # andre — et guild-site er et oplagt sted at forsoege at efterligne.
 /*
