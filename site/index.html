@@ -24,7 +24,13 @@
      saa naar man at se systemfonten skifte. -->
 <link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+<!-- ?v= er IKKE pynt. Browseren og Cloudflare har lov at gemme style.css i
+     timevis, mens index.html altid hentes frisk. Uden versionen kan en
+     besoegende koere NY html med GAMMEL css — og en manglende variabel gaar
+     ikke i stykker med en fejl: hele background-linjen bliver ugyldig, saa
+     medianbaren stod sort, og en slettet section-regel tegnede en guldstreg
+     hen over hero'en. Nyt tal her HVER gang style.css aendrer sig. -->
+<link rel="stylesheet" href="style.css?v=2">
 <style>
 /* ---------- HERO ---------- */
 /* Kunsten hoerer til hero'en, ikke til hele siden: den staar bag navnet,

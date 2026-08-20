@@ -4,7 +4,13 @@
 
    BEMAERK: apply.html bygger paa den her fil. Aendrer du .btn, .shell eller
    variabelnavnene, saa aabn apply.html og se efter — den har ingen egen
-   definition af dem. */
+   definition af dem.
+
+   BEMAERK OGSAA: filen hentes som style.css?v=N fra begge html-filer. HOEV N,
+   naar du aendrer noget her. Sker det ikke, koerer folk med ny html og gammel
+   css i op til fire timer — og en variabel, der endnu ikke findes, tager HELE
+   den regel med sig i faldet uden at sige noget (en bar uden baggrund er sort,
+   ikke fejlbehaeftet at se paa). Det er praecis det, der skete 20-08-2026. */
 
 /* Fonten ligger i repoet og serveres fra vores eget domaene. Det er et
    bevidst valg frem for Google Fonts: siden er ellers en fil og et cron-job

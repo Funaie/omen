@@ -14,6 +14,12 @@
 /art/*
   Cache-Control: public, max-age=86400
 
+# Tallet her er i praksis ligegyldigt: Cloudflare svarer 14400 paa /style.css
+# uanset hvad der staar (maalt 20-08-2026 — /data.json, /art/* og /fonts/*
+# respekteres, .css bliver overskrevet et sted i zonen). Derfor haenger
+# friskheden paa ?v=-nummeret i <link>, ikke paa den her linje. Skal du rette
+# css'en, saa hoev tallet i BEGGE html-filer — ellers ser folk den gamle i op
+# til fire timer.
 /style.css
   Cache-Control: public, max-age=3600
 
