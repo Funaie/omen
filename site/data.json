@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T21:46:04+00:00",
+  "generated_at": "2026-08-21T05:28:29+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,16 +12,16 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 5,
+    "nights_in_window": 7,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10566370,
-    "median_display": "2h56",
-    "best_wallclock_ms": 9271532,
-    "best_display": "2h35",
-    "report_count": 68,
-    "night_count": 33,
-    "full_clear_count": 9,
+    "median_wallclock_ms": 10364362,
+    "median_display": "2h53",
+    "best_wallclock_ms": 9670502,
+    "best_display": "2h41",
+    "report_count": 75,
+    "night_count": 35,
+    "full_clear_count": 12,
     "days_since_last_full_clear": 0
   },
   "progression": {
@@ -72,20 +72,120 @@
     "best_display": "1h20"
   },
   "window": [
-    "DALQ1RCdtj738Gw6",
+    "DQhq84mkx3HbBrV9",
+    "NbWnLwgJVB37djKG",
+    "Nq23hRvdxHn9FPgW",
+    "rVY2mM7Fd6qtKB9c",
     "2yp3JHDGZxA7f8MQ",
     "KrH4FZRnvtM9fxB1",
-    "t8bmZ3G4Yy2XKfPh",
-    "tdZgWKV3G87TfQcA"
+    "t8bmZ3G4Yy2XKfPh"
   ],
   "raids": [
     {
-      "code": "DALQ1RCdtj738Gw6",
-      "title": "ddaaaaa",
+      "code": "DQhq84mkx3HbBrV9",
+      "title": "booodu",
+      "date": "20-08-2026",
+      "started_at": "2026-08-20T18:33:51+00:00",
+      "session_wallclock_ms": 9999615,
+      "zones_wallclock_ms": 8712777,
+      "raid_size": 25,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4057574,
+          "boss_time_ms": 1094802,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 98291
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 152267
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 186199
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 108470
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 134526
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 415049
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 3969532,
+          "boss_time_ms": 913520,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Al'ar",
+              "duration_ms": 284731
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 101676
+            },
+            {
+              "name": "Void Reaver",
+              "duration_ms": 140638
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 386475
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 685671,
+          "boss_time_ms": 156125,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 41438
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 114687
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "NbWnLwgJVB37djKG",
+      "title": "SSC / TK",
       "date": "13-08-2026",
-      "started_at": "2026-08-13T18:30:22+00:00",
-      "session_wallclock_ms": 10364005,
-      "zones_wallclock_ms": 9080850,
+      "started_at": "2026-08-13T18:27:11+00:00",
+      "session_wallclock_ms": 10364362,
+      "zones_wallclock_ms": 9080927,
       "raid_size": 25,
       "boss_kills": 12,
       "complete": true,
@@ -94,8 +194,8 @@
         {
           "zone": "The Eye",
           "tier": "T5",
-          "wallclock_ms": 4295083,
-          "boss_time_ms": 911869,
+          "wallclock_ms": 4295037,
+          "boss_time_ms": 911888,
           "boss_kills": 4,
           "boss_count_expected": 4,
           "complete": true,
@@ -103,27 +203,27 @@
           "bosses": [
             {
               "name": "Al'ar",
-              "duration_ms": 302191
+              "duration_ms": 302260
             },
             {
               "name": "High Astromancer Solarian",
-              "duration_ms": 66357
+              "duration_ms": 66424
             },
             {
               "name": "Void Reaver",
-              "duration_ms": 137258
+              "duration_ms": 137323
             },
             {
               "name": "Kael'thas Sunstrider",
-              "duration_ms": 406063
+              "duration_ms": 405881
             }
           ]
         },
         {
           "zone": "Serpentshrine Cavern",
           "tier": "T5",
-          "wallclock_ms": 3913225,
-          "boss_time_ms": 1000383,
+          "wallclock_ms": 3913324,
+          "boss_time_ms": 1000743,
           "boss_kills": 6,
           "boss_count_expected": 6,
           "complete": true,
@@ -131,35 +231,35 @@
           "bosses": [
             {
               "name": "Hydross the Unstable",
-              "duration_ms": 85545
+              "duration_ms": 85585
             },
             {
               "name": "The Lurker Below",
-              "duration_ms": 135043
+              "duration_ms": 135098
             },
             {
               "name": "Morogrim Tidewalker",
-              "duration_ms": 163995
+              "duration_ms": 164167
             },
             {
               "name": "Fathom-Lord Karathress",
-              "duration_ms": 103316
+              "duration_ms": 103221
             },
             {
               "name": "Leotheras the Blind",
-              "duration_ms": 131028
+              "duration_ms": 131125
             },
             {
               "name": "Lady Vashj",
-              "duration_ms": 381456
+              "duration_ms": 381547
             }
           ]
         },
         {
           "zone": "Gruul's Lair",
           "tier": "T4",
-          "wallclock_ms": 872542,
-          "boss_time_ms": 188480,
+          "wallclock_ms": 872566,
+          "boss_time_ms": 188559,
           "boss_kills": 2,
           "boss_count_expected": 2,
           "complete": true,
@@ -167,33 +267,33 @@
           "bosses": [
             {
               "name": "High King Maulgar",
-              "duration_ms": 42974
+              "duration_ms": 43005
             },
             {
               "name": "Gruul the Dragonkiller",
-              "duration_ms": 145506
+              "duration_ms": 145554
             }
           ]
         }
       ]
     },
     {
-      "code": "YKZWDmNkjBtav1ng",
-      "title": "25 man",
+      "code": "Nq23hRvdxHn9FPgW",
+      "title": "SSC / TK",
       "date": "06-08-2026",
-      "started_at": "2026-08-06T18:54:28+00:00",
-      "session_wallclock_ms": 8582515,
-      "zones_wallclock_ms": 7279287,
+      "started_at": "2026-08-06T18:23:23+00:00",
+      "session_wallclock_ms": 9670502,
+      "zones_wallclock_ms": 8367161,
       "raid_size": 25,
-      "boss_kills": 11,
-      "complete": false,
-      "full_tier_clear": false,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
       "zones": [
         {
           "zone": "Serpentshrine Cavern",
           "tier": "T5",
-          "wallclock_ms": 4355046,
-          "boss_time_ms": 1021576,
+          "wallclock_ms": 4354959,
+          "boss_time_ms": 1021590,
           "boss_kills": 6,
           "boss_count_expected": 6,
           "complete": true,
@@ -201,59 +301,63 @@
           "bosses": [
             {
               "name": "Hydross the Unstable",
-              "duration_ms": 83449
+              "duration_ms": 83454
             },
             {
               "name": "The Lurker Below",
-              "duration_ms": 147678
+              "duration_ms": 147698
             },
             {
               "name": "Morogrim Tidewalker",
-              "duration_ms": 157167
+              "duration_ms": 157188
             },
             {
               "name": "Fathom-Lord Karathress",
-              "duration_ms": 103694
+              "duration_ms": 103676
             },
             {
               "name": "Leotheras the Blind",
-              "duration_ms": 122601
+              "duration_ms": 122588
             },
             {
               "name": "Lady Vashj",
-              "duration_ms": 406987
+              "duration_ms": 406986
             }
           ]
         },
         {
           "zone": "The Eye",
           "tier": "T5",
-          "wallclock_ms": 2314752,
-          "boss_time_ms": 545998,
-          "boss_kills": 3,
+          "wallclock_ms": 3402718,
+          "boss_time_ms": 785080,
+          "boss_kills": 4,
           "boss_count_expected": 4,
-          "complete": false,
+          "complete": true,
           "raid_size": 25,
           "bosses": [
             {
+              "name": "Al'ar",
+              "duration_ms": 239163
+            },
+            {
               "name": "High Astromancer Solarian",
-              "duration_ms": 59680
+              "duration_ms": 59681
             },
             {
               "name": "Void Reaver",
-              "duration_ms": 125446
+              "duration_ms": 125455
             },
             {
               "name": "Kael'thas Sunstrider",
-              "duration_ms": 360872
+              "duration_ms": 360781
             }
           ]
         },
         {
           "zone": "Gruul's Lair",
           "tier": "T4",
-          "wallclock_ms": 609489,
-          "boss_time_ms": 128386,
+          "wallclock_ms": 609484,
+          "boss_time_ms": 128392,
           "boss_kills": 2,
           "boss_count_expected": 2,
           "complete": true,
@@ -261,11 +365,109 @@
           "bosses": [
             {
               "name": "High King Maulgar",
-              "duration_ms": 28649
+              "duration_ms": 28637
             },
             {
               "name": "Gruul the Dragonkiller",
-              "duration_ms": 99737
+              "duration_ms": 99755
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "rVY2mM7Fd6qtKB9c",
+      "title": "SSC / TK",
+      "date": "30-07-2026",
+      "started_at": "2026-07-30T18:33:52+00:00",
+      "session_wallclock_ms": 10359489,
+      "zones_wallclock_ms": 9009173,
+      "raid_size": 25,
+      "boss_kills": 12,
+      "complete": true,
+      "full_tier_clear": true,
+      "zones": [
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 4593186,
+          "boss_time_ms": 1011091,
+          "boss_kills": 6,
+          "boss_count_expected": 6,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Hydross the Unstable",
+              "duration_ms": 84486
+            },
+            {
+              "name": "Morogrim Tidewalker",
+              "duration_ms": 157835
+            },
+            {
+              "name": "Fathom-Lord Karathress",
+              "duration_ms": 109525
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 133137
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 149086
+            },
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 377022
+            }
+          ]
+        },
+        {
+          "zone": "The Eye",
+          "tier": "T5",
+          "wallclock_ms": 3837760,
+          "boss_time_ms": 860325,
+          "boss_kills": 4,
+          "boss_count_expected": 4,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Void Reaver",
+              "duration_ms": 133019
+            },
+            {
+              "name": "Al'ar",
+              "duration_ms": 243971
+            },
+            {
+              "name": "High Astromancer Solarian",
+              "duration_ms": 98658
+            },
+            {
+              "name": "Kael'thas Sunstrider",
+              "duration_ms": 384677
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 578227,
+          "boss_time_ms": 153891,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 27139
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 126752
             }
           ]
         }
