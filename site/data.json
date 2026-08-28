@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T05:28:29+00:00",
+  "generated_at": "2026-08-28T17:08:18+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,17 +12,17 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 7,
+    "nights_in_window": 6,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10364362,
+    "median_wallclock_ms": 10361925,
     "median_display": "2h53",
     "best_wallclock_ms": 9670502,
     "best_display": "2h41",
-    "report_count": 75,
-    "night_count": 35,
+    "report_count": 76,
+    "night_count": 36,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 0
+    "days_since_last_full_clear": 7
   },
   "progression": {
     "zones": {
@@ -77,10 +77,75 @@
     "Nq23hRvdxHn9FPgW",
     "rVY2mM7Fd6qtKB9c",
     "2yp3JHDGZxA7f8MQ",
-    "KrH4FZRnvtM9fxB1",
-    "t8bmZ3G4Yy2XKfPh"
+    "KrH4FZRnvtM9fxB1"
   ],
   "raids": [
+    {
+      "code": "RbT6yct9GmC3nAWk",
+      "title": "omen alt life",
+      "date": "27-08-2026",
+      "started_at": "2026-08-27T18:37:58+00:00",
+      "session_wallclock_ms": 5255321,
+      "zones_wallclock_ms": 5255321,
+      "raid_size": 10,
+      "boss_kills": 10,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Karazhan",
+          "tier": "T4",
+          "wallclock_ms": 5255321,
+          "boss_time_ms": 1127614,
+          "boss_kills": 10,
+          "boss_count_expected": 11,
+          "complete": false,
+          "raid_size": 10,
+          "bosses": [
+            {
+              "name": "Moroes",
+              "duration_ms": 63825
+            },
+            {
+              "name": "Maiden of Virtue",
+              "duration_ms": 75860
+            },
+            {
+              "name": "Opera Hall",
+              "duration_ms": 46484
+            },
+            {
+              "name": "Nightbane",
+              "duration_ms": 289850
+            },
+            {
+              "name": "The Curator",
+              "duration_ms": 130464
+            },
+            {
+              "name": "Terestian Illhoof",
+              "duration_ms": 82000
+            },
+            {
+              "name": "Shade of Aran",
+              "duration_ms": 109634
+            },
+            {
+              "name": "Netherspite",
+              "duration_ms": 92819
+            },
+            {
+              "name": "Chess Event",
+              "duration_ms": 95586
+            },
+            {
+              "name": "Prince Malchezaar",
+              "duration_ms": 141092
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "DQhq84mkx3HbBrV9",
       "title": "booodu",
