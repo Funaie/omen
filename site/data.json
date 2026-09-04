@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T17:08:18+00:00",
+  "generated_at": "2026-09-04T09:18:05+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,17 +12,17 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 6,
+    "nights_in_window": 5,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10361925,
+    "median_wallclock_ms": 10359489,
     "median_display": "2h53",
     "best_wallclock_ms": 9670502,
     "best_display": "2h41",
-    "report_count": 76,
-    "night_count": 36,
+    "report_count": 78,
+    "night_count": 38,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 7
+    "days_since_last_full_clear": 14
   },
   "progression": {
     "zones": {
@@ -76,10 +76,137 @@
     "NbWnLwgJVB37djKG",
     "Nq23hRvdxHn9FPgW",
     "rVY2mM7Fd6qtKB9c",
-    "2yp3JHDGZxA7f8MQ",
-    "KrH4FZRnvtM9fxB1"
+    "2yp3JHDGZxA7f8MQ"
   ],
   "raids": [
+    {
+      "code": "3ZGp6Kdt1mNf4xQ9",
+      "title": "Unknown Zone",
+      "date": "03-09-2026",
+      "started_at": "2026-09-03T18:31:26+00:00",
+      "session_wallclock_ms": 11586760,
+      "zones_wallclock_ms": 11537466,
+      "raid_size": 25,
+      "boss_kills": 8,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 11537466,
+          "boss_time_ms": 1467039,
+          "boss_kills": 8,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High Warlord Naj'entus",
+              "duration_ms": 130055
+            },
+            {
+              "name": "Supremus",
+              "duration_ms": 180476
+            },
+            {
+              "name": "Shade of Akama",
+              "duration_ms": 72465
+            },
+            {
+              "name": "Teron Gorefiend",
+              "duration_ms": 124090
+            },
+            {
+              "name": "Reliquary of Souls",
+              "duration_ms": 320241
+            },
+            {
+              "name": "Gurtogg Bloodboil",
+              "duration_ms": 178825
+            },
+            {
+              "name": "Mother Shahraz",
+              "duration_ms": 154948
+            },
+            {
+              "name": "The Illidari Council",
+              "duration_ms": 305939
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "DHmgtwjy7qxd6hvn",
+      "title": "boodu whoodu the new t6 woohu",
+      "date": "30-08-2026",
+      "started_at": "2026-08-30T18:33:17+00:00",
+      "session_wallclock_ms": 9911576,
+      "zones_wallclock_ms": 8576480,
+      "raid_size": 25,
+      "boss_kills": 8,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Hyjal Summit",
+          "tier": null,
+          "wallclock_ms": 5343607,
+          "boss_time_ms": 641071,
+          "boss_kills": 5,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Rage Winterchill",
+              "duration_ms": 120111
+            },
+            {
+              "name": "Anetheron",
+              "duration_ms": 107593
+            },
+            {
+              "name": "Kaz'rogal",
+              "duration_ms": 142477
+            },
+            {
+              "name": "Azgalor",
+              "duration_ms": 134094
+            },
+            {
+              "name": "Archimonde",
+              "duration_ms": 136796
+            }
+          ]
+        },
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 3232873,
+          "boss_time_ms": 512452,
+          "boss_kills": 3,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High Warlord Naj'entus",
+              "duration_ms": 143456
+            },
+            {
+              "name": "Supremus",
+              "duration_ms": 281969
+            },
+            {
+              "name": "Shade of Akama",
+              "duration_ms": 87027
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "RbT6yct9GmC3nAWk",
       "title": "omen alt life",
