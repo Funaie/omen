@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T09:18:05+00:00",
+  "generated_at": "2026-09-11T09:20:08+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -19,10 +19,10 @@
     "median_display": "2h53",
     "best_wallclock_ms": 9670502,
     "best_display": "2h41",
-    "report_count": 78,
-    "night_count": 38,
+    "report_count": 81,
+    "night_count": 40,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 14
+    "days_since_last_full_clear": 21
   },
   "progression": {
     "zones": {
@@ -79,6 +79,166 @@
     "2yp3JHDGZxA7f8MQ"
   ],
   "raids": [
+    {
+      "code": "GwD3XYhmCAgpH7Wz",
+      "title": "",
+      "date": "10-09-2026",
+      "started_at": "2026-09-10T18:28:39+00:00",
+      "session_wallclock_ms": 7350669,
+      "zones_wallclock_ms": 7350669,
+      "raid_size": 25,
+      "boss_kills": 7,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 7350669,
+          "boss_time_ms": 1105994,
+          "boss_kills": 7,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High Warlord Naj'entus",
+              "duration_ms": 105153
+            },
+            {
+              "name": "Supremus",
+              "duration_ms": 176918
+            },
+            {
+              "name": "Shade of Akama",
+              "duration_ms": 73466
+            },
+            {
+              "name": "Teron Gorefiend",
+              "duration_ms": 151653
+            },
+            {
+              "name": "Reliquary of Souls",
+              "duration_ms": 302302
+            },
+            {
+              "name": "Gurtogg Bloodboil",
+              "duration_ms": 166767
+            },
+            {
+              "name": "Mother Shahraz",
+              "duration_ms": 129735
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "v9GxHkYyRgT4p7Fj",
+      "title": "boogu",
+      "date": "06-09-2026",
+      "started_at": "2026-09-06T18:34:13+00:00",
+      "session_wallclock_ms": 10113728,
+      "zones_wallclock_ms": 7893284,
+      "raid_size": 25,
+      "boss_kills": 11,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Hyjal Summit",
+          "tier": null,
+          "wallclock_ms": 3939894,
+          "boss_time_ms": 658725,
+          "boss_kills": 5,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Rage Winterchill",
+              "duration_ms": 133617
+            },
+            {
+              "name": "Anetheron",
+              "duration_ms": 95168
+            },
+            {
+              "name": "Kaz'rogal",
+              "duration_ms": 122930
+            },
+            {
+              "name": "Azgalor",
+              "duration_ms": 184070
+            },
+            {
+              "name": "Archimonde",
+              "duration_ms": 122940
+            }
+          ]
+        },
+        {
+          "zone": "Serpentshrine Cavern",
+          "tier": "T5",
+          "wallclock_ms": 2786289,
+          "boss_time_ms": 692630,
+          "boss_kills": 3,
+          "boss_count_expected": 6,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Lady Vashj",
+              "duration_ms": 383786
+            },
+            {
+              "name": "The Lurker Below",
+              "duration_ms": 168676
+            },
+            {
+              "name": "Leotheras the Blind",
+              "duration_ms": 140168
+            }
+          ]
+        },
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 795588,
+          "boss_time_ms": 425165,
+          "boss_kills": 1,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Illidan Stormrage",
+              "duration_ms": 425165
+            }
+          ]
+        },
+        {
+          "zone": "Gruul's Lair",
+          "tier": "T4",
+          "wallclock_ms": 371513,
+          "boss_time_ms": 127543,
+          "boss_kills": 2,
+          "boss_count_expected": 2,
+          "complete": true,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "High King Maulgar",
+              "duration_ms": 31765
+            },
+            {
+              "name": "Gruul the Dragonkiller",
+              "duration_ms": 95778
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "3ZGp6Kdt1mNf4xQ9",
       "title": "Unknown Zone",
