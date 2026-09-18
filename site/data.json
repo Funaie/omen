@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T09:20:08+00:00",
+  "generated_at": "2026-09-18T09:21:46+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -12,17 +12,17 @@
       "Serpentshrine Cavern",
       "The Eye"
     ],
-    "nights_in_window": 5,
+    "nights_in_window": 4,
     "window_days": 56,
     "window_extended": false,
-    "median_wallclock_ms": 10359489,
-    "median_display": "2h53",
+    "median_wallclock_ms": 10179552,
+    "median_display": "2h50",
     "best_wallclock_ms": 9670502,
     "best_display": "2h41",
-    "report_count": 81,
-    "night_count": 40,
+    "report_count": 82,
+    "night_count": 41,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 21
+    "days_since_last_full_clear": 28
   },
   "progression": {
     "zones": {
@@ -75,10 +75,47 @@
     "DQhq84mkx3HbBrV9",
     "NbWnLwgJVB37djKG",
     "Nq23hRvdxHn9FPgW",
-    "rVY2mM7Fd6qtKB9c",
-    "2yp3JHDGZxA7f8MQ"
+    "rVY2mM7Fd6qtKB9c"
   ],
   "raids": [
+    {
+      "code": "MH9CZFavxmjYKz6P",
+      "title": "BT / Hyjal",
+      "date": "17-09-2026",
+      "started_at": "2026-09-17T19:01:23+00:00",
+      "session_wallclock_ms": 9498503,
+      "zones_wallclock_ms": 4410138,
+      "raid_size": 25,
+      "boss_kills": 3,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 4410138,
+          "boss_time_ms": 587425,
+          "boss_kills": 3,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Gurtogg Bloodboil",
+              "duration_ms": 193264
+            },
+            {
+              "name": "Mother Shahraz",
+              "duration_ms": 146461
+            },
+            {
+              "name": "The Illidari Council",
+              "duration_ms": 247700
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "GwD3XYhmCAgpH7Wz",
       "title": "",
