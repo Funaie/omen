@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T09:21:46+00:00",
+  "generated_at": "2026-09-25T09:58:40+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -19,10 +19,10 @@
     "median_display": "2h50",
     "best_wallclock_ms": 9670502,
     "best_display": "2h41",
-    "report_count": 82,
-    "night_count": 41,
+    "report_count": 84,
+    "night_count": 42,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 28
+    "days_since_last_full_clear": 35
   },
   "progression": {
     "zones": {
@@ -78,6 +78,68 @@
     "rVY2mM7Fd6qtKB9c"
   ],
   "raids": [
+    {
+      "code": "wHW9mY2Kd34q8hvn",
+      "title": "boogaloo",
+      "date": "20-09-2026",
+      "started_at": "2026-09-20T18:42:26+00:00",
+      "session_wallclock_ms": 6499972,
+      "zones_wallclock_ms": 5795879,
+      "raid_size": 25,
+      "boss_kills": 6,
+      "complete": false,
+      "full_tier_clear": false,
+      "zones": [
+        {
+          "zone": "Hyjal Summit",
+          "tier": null,
+          "wallclock_ms": 5063468,
+          "boss_time_ms": 658936,
+          "boss_kills": 5,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Rage Winterchill",
+              "duration_ms": 163833
+            },
+            {
+              "name": "Anetheron",
+              "duration_ms": 100003
+            },
+            {
+              "name": "Kaz'rogal",
+              "duration_ms": 126831
+            },
+            {
+              "name": "Azgalor",
+              "duration_ms": 134024
+            },
+            {
+              "name": "Archimonde",
+              "duration_ms": 134245
+            }
+          ]
+        },
+        {
+          "zone": "Black Temple",
+          "tier": null,
+          "wallclock_ms": 732411,
+          "boss_time_ms": 361051,
+          "boss_kills": 1,
+          "boss_count_expected": null,
+          "complete": false,
+          "raid_size": 25,
+          "bosses": [
+            {
+              "name": "Illidan Stormrage",
+              "duration_ms": 361051
+            }
+          ]
+        }
+      ]
+    },
     {
       "code": "MH9CZFavxmjYKz6P",
       "title": "BT / Hyjal",
