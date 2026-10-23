@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T09:28:04+00:00",
+  "generated_at": "2026-10-23T09:43:47+00:00",
   "guild": {
     "name": "Omen",
     "realm": "Spineshatter",
@@ -13,7 +13,7 @@
       "The Eye"
     ],
     "nights_in_window": 4,
-    "window_days": 77,
+    "window_days": 84,
     "window_extended": true,
     "median_wallclock_ms": 10179552,
     "median_display": "2h50",
@@ -22,7 +22,7 @@
     "report_count": 84,
     "night_count": 42,
     "full_clear_count": 12,
-    "days_since_last_full_clear": 56
+    "days_since_last_full_clear": 63
   },
   "progression": {
     "zones": {
